@@ -3,7 +3,35 @@
   "description": "多看板统一入口",
   "dashboards": [
     {
+      "id": "daily-2023",
+      "section": "日报",
+      "name": "金融日报 2026-08-23",
+      "description": "每日市场回顾与复盘",
+      "file": "2026-08-23.html",
+      "icon": "📅",
+      "tags": ["金融", "日报", "每日"]
+    },
+    {
+      "id": "daily-2022",
+      "section": "日报",
+      "name": "金融日报 2026-08-19",
+      "description": "每日市场回顾与复盘",
+      "file": "2026-08-19.html",
+      "icon": "📅",
+      "tags": ["金融", "日报", "每日"]
+    },
+    {
+      "id": "daily-2021",
+      "section": "日报",
+      "name": "金融日报 2026-08-18",
+      "description": "每日市场回顾与复盘",
+      "file": "2026-08-18.html",
+      "icon": "📅",
+      "tags": ["金融", "日报", "每日"]
+    },
+    {
       "id": "housing",
+      "section": "看板",
       "name": "70城房价看板",
       "description": "国家统计局 · 城市等级36月 + 城市明细11月",
       "file": "housing_full.html",

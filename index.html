@@ -255,19 +255,30 @@ fetch('manifest.json')
       '<div style="padding:12px 20px;color:#666;font-size:12px">manifest.json 加载失败</div>';
   });
 
-// ── 渲染导航 ──
+// ── 渲染导航（分组）──
 function renderNav() {
   const list = document.getElementById('nav-list');
-  list.innerHTML = MANIFEST.map(d => `
-    <div class="sidebar-item" onclick="loadDashboard('${d.id}')" id="nav-${d.id}">
-      <div class="icon">${d.icon}</div>
-      <div class="info">
-        <div class="name">${d.name}</div>
-        <div class="desc">${d.description}</div>
-      </div>
-      <div class="arrow">›</div>
-    </div>
-  `).join('');
+  const sections = {};
+  MANIFEST.forEach(d => {
+    const sec = d.section || '其他';
+    if (!sections[sec]) sections[sec] = [];
+    sections[sec].push(d);
+  });
+
+  let html = '';
+  Object.entries(sections).forEach(([secName, items]) => {
+    html += `<div class="sidebar-section-label">${secName}</div>`;
+    html += items.map(d => `
+      <div class="sidebar-item" onclick="loadDashboard('${d.id}')" id="nav-${d.id}">
+        <div class="icon">${d.icon}</div>
+        <div class="info">
+          <div class="name">${d.name}</div>
+          <div class="desc">${d.description}</div>
+        </div>
+        <div class="arrow">›</div>
+      </div>`).join('');
+  });
+  list.innerHTML = html;
 }
 
 // ── 加载看板 ──
