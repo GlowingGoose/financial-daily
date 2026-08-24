@@ -2,139 +2,185 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<title>金融日报 | 2026-08-24</title>
+<title>Global Finance Daily | 2026-08-24</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif;background:#f5f6fa;color:#1a1a2e;font-size:14px;line-height:1.6}
-.container{max-width:900px;margin:0 auto;padding:20px}
-.header{background:linear-gradient(135deg,#1a1a2e,#16213e,#0f3460);color:#fff;padding:32px 28px;border-radius:16px;margin-bottom:20px;text-align:center}
-.header h1{font-size:26px;font-weight:600;margin-bottom:6px;letter-spacing:1px}
-.header .date{color:#aab;font-size:14px;margin-bottom:20px}
-.market-bar{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:0}
-.market-card{background:rgba(255,255,255,0.08);border-radius:10px;padding:14px;text-align:center;border:1px solid rgba(255,255,255,0.1)}
-.market-card .label{font-size:12px;color:#aab;margin-bottom:4px}
-.market-card .price{font-size:18px;font-weight:700}
-.market-card .change{font-size:12px;margin-top:2px}
-.up{color:#e74c3c}
-.down{color:#27ae60}
-.flat{color:#aaa}
-.commodities{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:20px}
-.comm-card{background:#fff;border-radius:10px;padding:14px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,0.06)}
-.comm-card .label{font-size:12px;color:#888}
-.comm-card .price{font-size:20px;font-weight:700;margin:4px 0}
-.comm-card .unit{font-size:11px;color:#aaa}
-.section{background:#fff;border-radius:12px;padding:20px;margin-bottom:16px;box-shadow:0 2px 8px rgba(0,0,0,0.06)}
-.section-title{font-size:15px;font-weight:700;margin-bottom:14px;padding-bottom:10px;border-bottom:2px solid #f0f2f5;display:flex;align-items:center;gap:8px}
-.section-title .icon{font-size:18px}
+body{font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif;background:#0d1117;color:#e6edf3;font-size:14px;line-height:1.6}
+a{color:#58a6ff;text-decoration:none}
+a:hover{text-decoration:underline}
+.container{max-width:960px;margin:0 auto;padding:20px}
+
+/* 报头 */
+.header{background:linear-gradient(135deg,#0d1117,#161b22,#1c2128);border:1px solid #30363d;border-radius:14px;padding:28px;margin-bottom:20px}
+.header-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}
+.header h1{font-size:22px;font-weight:700;color:#f0f6fc;letter-spacing:0.5px}
+.header .lang{font-size:12px;color:#484f58;background:#21262d;padding:3px 10px;border-radius:20px;border:1px solid #30363d}
+.header .date{color:#8b949e;font-size:13px;margin-bottom:20px}
+.market-bar{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.comm-bar{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:8px}
+.market-card,.comm-card{background:#161b22;border:1px solid #30363d;border-radius:8px;padding:12px;text-align:center}
+.market-card .label,.comm-card .label{font-size:11px;color:#8b949e;margin-bottom:4px}
+.market-card .price,.comm-card .price{font-size:17px;font-weight:700;color:#f0f6fc}
+.market-card .change{font-size:11px;margin-top:2px}
+.up{color:#f85149}
+.down{color:#3fb950}
+.flat{color:#8b949e}
+
+/* 板块 */
+.section{background:#161b22;border:1px solid #30363d;border-radius:12px;padding:20px;margin-bottom:14px}
+.section-title{font-size:13px;font-weight:600;color:#8b949e;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid #21262d;
+  display:flex;align-items:center;gap:8px;text-transform:uppercase;letter-spacing:1px}
+.section-title .icon{font-size:16px}
 .news-list{list-style:none}
-.news-list li{padding:10px 0;border-bottom:1px solid #f8f8f8;display:flex;flex-direction:column;gap:2px}
+.news-list li{padding:9px 0;border-bottom:1px solid #21262d;display:flex;flex-direction:column;gap:2px}
 .news-list li:last-child{border-bottom:none}
-.news-list a{color:#1a1a2e;text-decoration:none;font-size:14px;line-height:1.5;font-weight:500;display:block}
-.news-list a:hover{color:#0f3460;text-decoration:underline}
-.news-list .intro{font-size:12px;color:#999;margin-top:2px;line-height:1.4}
-.news-list .meta{font-size:11px;color:#bbb;margin-top:2px}
-.tag{display:inline-block;padding:1px 7px;border-radius:4px;font-size:11px;margin-right:6px}
-.tag-global{background:#e8f4ff;color:#1a5276}
-.tag-tech{background:#e8fff0;color:#1a7a3a}
-.tag-cn{background:#ffe8e8;color:#c0392b}
-.tag-alert{background:#fff3cd;color:#856404}
-.footer{text-align:center;padding:20px;color:#aaa;font-size:12px}
+.news-list a{color:#e6edf3;font-size:13px;line-height:1.5;font-weight:500}
+.news-list a:hover{color:#58a6ff;text-decoration:underline}
+.news-list .intro{font-size:11px;color:#6e7681;margin-top:2px;line-height:1.4}
+.news-list .meta{font-size:10px;color:#484f58;margin-top:2px}
+
+/* 两栏布局（国际新闻用两栏）*/
+.news-grid{display:grid;grid-template-columns:1fr 1fr;gap:0}
+.news-grid .news-col{padding-right:16px}
+.news-grid .news-list li{padding:8px 0}
+
+.footer{text-align:center;padding:24px;color:#484f58;font-size:12px}
+.footer a{color:#484f58}
+
+/* 深色标签 */
+.tag{display:inline-block;padding:1px 6px;border-radius:3px;font-size:10px;margin-right:4px}
+.tag-en{background:#1f2937;color:#9ca3af}
 </style>
 </head>
 <body>
 <div class="container">
+
+<!-- 报头：全球市场总览 -->
 <div class="header">
-  <h1>📊 金融日报</h1>
-  <div class="date">2026-08-24 &nbsp;·&nbsp; 数据来源：新浪财经 · 东方财富 · FXStreet · 财联社</div>
+  <div class="header-top">
+    <h1>🌏 Global Finance Daily</h1>
+    <span class="lang">EN · ZH</span>
+  </div>
+  <div class="date">2026-08-24 &nbsp;·&nbsp; Sources: BBC · Yahoo Finance · MarketWatch · Guardian · Economist · ZeroHedge · FXStreet</div>
   <div class="market-bar"><div class="market-card">
-      <div class="label">上证指数</div>
+      <div class="label">🇨🇳 上证</div>
       <div class="price">3882.0079</div>
       <div class="change down">-0.59 %</div>
     </div><div class="market-card">
-      <div class="label">深证成指</div>
+      <div class="label">🇨🇳 深证</div>
       <div class="price">13794.29</div>
       <div class="change down">-2.13 %</div>
     </div><div class="market-card">
-      <div class="label">创业板指</div>
+      <div class="label">🇨🇳 创业板</div>
       <div class="price">3431.89</div>
       <div class="change down">-3.21 %</div>
     </div></div>
-</div>
-
-<div class="commodities"><div class="comm-card">
+  <div class="comm-bar"><div class="comm-card">
       <div class="label">🪙 黄金 COMEX</div>
-      <div class="price up">4702.66</div>
+      <div class="price">4706.44</div>
       <div class="unit">USD/盎司</div>
     </div><div class="comm-card">
       <div class="label">🥈 白银 COMEX</div>
-      <div class="price up">69.651</div>
+      <div class="price">69.734</div>
       <div class="unit">USD/盎司</div>
     </div><div class="comm-card">
       <div class="label">🛢️ WTI 原油</div>
-      <div class="price up">85.313</div>
+      <div class="price">85.275</div>
       <div class="unit">USD/桶</div>
     </div></div>
-
-<div class="section">
-  <div class="section-title"><span class="icon">🇨🇳</span>中国宏观财经</div>
-  <ul class="news-list"><li><a href="https://finance.sina.com.cn/licaishi/2026-08-24/doc-inipmnps2816036.shtml" target="_blank">薪火相传话十载｜往届选手寄语第十届银华基金杯新浪理财师大赛</a><div class="intro">十载时光荏苒，从2017到2026，“银华基金杯” 新浪理财师大赛走过属于理财人的十年征程。一场场赛场交锋，不仅诞生诸多高光时刻，也沉淀下一代代理财师的思考与感</div><div class="meta">1787569686</div></li>
-<li><a href="https://finance.sina.com.cn/tech/it/2026-08-24/doc-inipmhfs6152646.shtml" target="_blank">拼多多二季度利润272亿元，同比下降12%</a><div class="intro"> 新浪科技讯 8月24日晚间消息，拼多多发布最新财报，二季度营收1124亿元。二季度利润272亿元，同比下降12%；Non-GAAP研发投入43亿元，同比增长4</div><div class="meta">1787567930</div></li>
-<li><a href="https://finance.sina.com.cn/stock/usstock/c/2026-08-24/doc-inipmhfp0091919.shtml" target="_blank">如果熊市即将到来，历史证明坚持做好这一件事的投资者终将胜出</a><div class="intro">作者：詹妮弗・赛比尔|傻瓜投资网（The Motley Fool） 美股市场即将迎来连续第四年两位数涨幅，此时很难想象熊市会近在眼前。当然熊市未必马上就会到来；</div><div class="meta">1787567701</div></li>
-<li><a href="https://finance.sina.com.cn/stock/usstock/c/2026-08-24/doc-inipmhfs6142115.shtml" target="_blank">美元受债务担忧压制，徘徊于数月低点</a><div class="intro"> 受美国财政部承诺加大长期国债回购操作的扰动，周一美元汇率在近数月低点附近震荡。交易员同时等待伊朗制裁方案细节，以及本周美国、日本的一系列政策讲话。</div><div class="meta">1787567335</div></li>
-<li><a href="https://finance.sina.com.cn/wm/2026-08-24/doc-inipmhfu2907649.shtml" target="_blank">最高可贷340万元！国管公积金新政来了→</a><div class="intro">转自：央视财经 中央国家机关住房资金管理中心近日发布通知，宣布对住房公积金政策进行优化调整，与此前北京楼市新政中关于公积金的调整相同...</div><div class="meta">1787566443</div></li>
-<li><a href="https://finance.sina.com.cn/world/2026-08-24/doc-inipmhfq2011329.shtml" target="_blank">贝森特无法控制的因素驱动之下 美债收益率的控制可没那么简单</a><div class="intro"> 斯科特·贝森特上任美国财政部长的时候，对其前任试图重塑全球最大债券市场的做法颇有意见。然而在上周，他自己却也尝试了一把。</div><div class="meta">1787566131</div></li>
-<li><a href="https://finance.sina.com.cn/world/2026-08-24/doc-inipmhfq2009889.shtml" target="_blank">菲律宾证券交易委员会拟提高券商资本金要求</a><div class="intro">菲律宾证券交易委员会主席弗朗西斯·林表示，该机构正在研究提高股票经纪商最低资本金要求。 他在一场简报会上称，证交会考虑将资本金门槛上调至1亿比索以上...</div><div class="meta">1787566057</div></li>
-<li><a href="https://finance.sina.com.cn/stock/usstock/c/2026-08-24/doc-inipmhfq2006528.shtml" target="_blank">英伟达第二季度财报，将检验AI行情能否再度走强</a><div class="intro">关键时刻即将到来。自 AI 投资热潮兴起之后，每个季度华尔街都在等待这一刻：英伟达（NVDA）的第二季度财报。 各大科技巨头差不多一个月前就已经披露完业绩...</div><div class="meta">1787565898</div></li>
-</ul>
 </div>
 
-<div class="section">
-  <div class="section-title"><span class="icon">🤖</span>科技 / 新能源</div>
-  <ul class="news-list"><li><a href="https://finance.sina.com.cn/jjxw/2026-08-24/doc-inipmnpk9985524.shtml" target="_blank">拼多多发布Q2财报：营收1124亿元，利润272亿元</a><div class="intro">新浪科技讯 8月24日晚间消息，拼多多发布截至6月30日的2026年第二季度财报。受益于“千亿扶持”等惠商战略的效用释放，以及平台治理体系的全面升级...</div><div class="meta">1787569169</div></li>
-<li><a href="https://finance.sina.com.cn/jjxw/2026-08-24/doc-inipmnps2806549.shtml" target="_blank">小鹏机器人宣布完成首轮融资，何小鹏：努力将第一个高阶人形机器人带入现实</a><div class="intro"> 新浪科技讯 8月24日晚间消息，小鹏集团董事长、CEO何小鹏今日在朋友圈发文，谈及小鹏机器人业务宣布完成首轮融资一事。</div><div class="meta">1787568825</div></li>
-<li><a href="https://finance.sina.com.cn/jjxw/2026-08-24/doc-inipmnpk9979941.shtml" target="_blank">联想《词元工厂》线上深度解读研讨会：先进词元工厂决定先进AI智能</a><div class="intro"> 新浪科技讯 8月24日下午消息，近日，由机械工业出版社与联想联合主办的“破解AI落地四大难题，读懂Token经济全新趋势”——《词元工厂》线上深度解读研讨会召</div><div class="meta">1787568749</div></li>
-<li><a href="https://finance.sina.com.cn/jjxw/2026-08-24/doc-inipmnpn1923087.shtml" target="_blank">火山引擎王运凯：春晚大家看到所有具身机器人，背后的头部公司用的基本上是豆包模型</a><div class="intro">新浪科技讯 8月24日下午消息，2026世界机器人大会（WRC）期间，火山引擎具身智能技术与应用论坛召开。论坛上，火山引擎具身智能产品线负责人王运凯在活动中发表</div><div class="meta">1787568315</div></li>
-<li><a href="https://finance.sina.com.cn/tech/it/2026-08-24/doc-inipmhfs6152646.shtml" target="_blank">拼多多二季度利润272亿元，同比下降12%</a><div class="intro"> 新浪科技讯 8月24日晚间消息，拼多多发布最新财报，二季度营收1124亿元。二季度利润272亿元，同比下降12%；Non-GAAP研发投入43亿元，同比增长4</div><div class="meta">1787567930</div></li>
-<li><a href="https://finance.sina.com.cn/jjxw/2026-08-24/doc-inipmhfu2873881.shtml" target="_blank">蔡崇信、吴泳铭出手增持1.2亿港元阿里股票</a><div class="intro">新浪科技讯 8月24日下午消息，据港交所最新信息，在阿里巴巴宣布800亿港元新股配售计划后，集团主席蔡崇信、CEO吴泳铭出手增持合计约1.2亿港元阿里股票...</div><div class="meta">1787565046</div></li>
+<!-- 国际财经（两栏） -->
+<div class="news-grid">
+  <div class="news-col">
+    <div class="section">
+      <div class="section-title"><span class="icon">🇬🇧</span>BBC Business</div>
+      <ul class="news-list"><li><a href="https://www.bbc.co.uk/news/articles/c0qxew81y83o?at_medium=RSS&at_campaign=rss" target="_blank">Iran faces 'greatest financial offensive ever', says US treasury secretary</a><div class="intro">Scott Bessent says the US will sever all economic ties with the country and that any nation partneri</div><div class="meta">Mon, 24 Aug 2026</div></li>
+<li><a href="https://www.bbc.co.uk/news/articles/crerd8l3pw5o?at_medium=RSS&at_campaign=rss" target="_blank">Graduate job vacancies drop by almost 50% in a year</a><div class="intro">Job site Adzuna said the number of graduate vacancies was the lowest since 2016</div><div class="meta">Mon, 24 Aug 2026</div></li>
+<li><a href="https://www.bbc.co.uk/news/articles/cdeweewjdxno?at_medium=RSS&at_campaign=rss" target="_blank">Shein aims for almost $27bn valuation in stock market debut</a><div class="intro">The fast-fashion giant's shares are due to start trading in Hong Kong on 1 September.</div><div class="meta">Mon, 24 Aug 2026</div></li>
+<li><a href="https://www.bbc.co.uk/news/articles/c8xnxy89gv7o?at_medium=RSS&at_campaign=rss" target="_blank">Pubs and hotels could see business rates reformed after review</a><div class="intro">The review of how rates are calculated in England and Wales could lead to reform of the system.</div><div class="meta">Mon, 24 Aug 2026</div></li>
+<li><a href="https://www.bbc.co.uk/news/articles/cz647wlvg1do?at_medium=RSS&at_campaign=rss" target="_blank">How to get £2,000 to play computer games at university</a><div class="intro">Roehampton University offers students a year;y scholarship to play esports alongside their studies.</div><div class="meta">Sun, 23 Aug 2026</div></li>
+<li><a href="https://www.bbc.co.uk/news/articles/c05q318501yo?at_medium=RSS&at_campaign=rss" target="_blank">'I didn't speak the Queen's English': Why people worry about their accents</a><div class="intro">A survey on attitudes towards accents suggests that so-called "accent bias" is still an issue in man</div><div class="meta">Sun, 23 Aug 2026</div></li>
 </ul>
+    </div>
+    <div class="section">
+      <div class="section-title"><span class="icon">🏛️</span>The Guardian Business</div>
+      <ul class="news-list"><li><a href="https://www.theguardian.com/business/live/2026/aug/24/canadian-dollar-dips-us-canada-talks-collapse-trade-war-oil-prices-fall-us-sanctions-on-iran-live-updates" target="_blank">Iran’s rial falls to record low as Scott Bessent warns of ‘economic D-day’ – business live</a><div class="intro">US Treasury secretary to announce sanctions against Tehran at a press conference at 1pm EDT (6pm Lon</div><div class="meta">Mon, 24 Aug 2026</div></li>
+<li><a href="https://www.theguardian.com/business/2026/aug/24/thames-water-investors-board-nationalisation-rescue-deal" target="_blank">Thames Water creditors accused of ‘shuffling deckchairs’ with plan for new board</a><div class="intro">Campaigners say proposal for £10bn rescue deal in bid to avoid nationalisation is a ‘cosy stitch-up’</div><div class="meta">Mon, 24 Aug 2026</div></li>
+<li><a href="https://www.theguardian.com/business/2026/aug/24/uk-productivity-growing-faster-official-figures-resolution-foundation" target="_blank">UK productivity growing faster than official figures suggest, thinktank finds</a><div class="intro">Resolution Foundation suggests economy may finally be emerging from shadow of 2008 financial crisisB</div><div class="meta">Sun, 23 Aug 2026</div></li>
+<li><a href="https://www.theguardian.com/business/2026/aug/24/fashion-giant-shein-27bn-valuation-hong-kong-market-debut" target="_blank">Fast-fashion giant Shein sets cut-price $27bn valuation for Hong Kong IPO</a><div class="intro">China-based retailer swung to $99m loss in first quarter and faces scrutiny over its environmental f</div><div class="meta">Mon, 24 Aug 2026</div></li>
+<li><a href="https://www.theguardian.com/business/2026/aug/24/uk-graduate-job-vacancies-plunge-adzuna" target="_blank">UK graduate job vacancies plunge to lowest in a decade</a><div class="intro">Just 8,383 jobs for people leaving university were advertised in July, says recruitment website Adzu</div><div class="meta">Mon, 24 Aug 2026</div></li>
+</ul>
+    </div>
+    <div class="section">
+      <div class="section-title"><span class="icon">📊</span>The Economist</div>
+      <ul class="news-list"><li><a href="https://www.economist.com/finance-and-economics/2026/08/23/is-scott-bessent-the-fed-chair-donald-trump-always-wanted" target="_blank">Is Scott Bessent the Fed chair Donald Trump always wanted?</a><div class="intro">Perhaps. But his effort to talk bond yields lower is likely to fail</div><div class="meta">Sun, 23 Aug 2026</div></li>
+<li><a href="https://www.economist.com/interactive/trump-tariff-costs-tracker" target="_blank">Tracking the cost of Donald Trump’s tariffs</a><div class="intro">America’s global effective tariff stands at 10.0%</div><div class="meta">Fri, 21 Aug 2026</div></li>
+<li><a href="https://www.economist.com/finance-and-economics/2026/08/20/the-high-cost-of-phantom-tollbooths" target="_blank">The high cost of phantom tollbooths</a><div class="intro">Freedom of navigation is worth preserving</div><div class="meta">Thu, 20 Aug 2026</div></li>
+<li><a href="https://www.economist.com/finance-and-economics/2026/08/20/however-you-measure-it-chinas-job-market-is-weak" target="_blank">However you measure it, China’s job market is weak</a><div class="intro">Some workers are going back to the farm</div><div class="meta">Thu, 20 Aug 2026</div></li>
+<li><a href="https://www.economist.com/finance-and-economics/2026/08/19/why-bond-markets-are-unnerving-rich-world-politicians" target="_blank">Why bond markets are unnerving rich-world politicians</a><div class="intro">As stocks rise ever higher, yields have been climbing ominously</div><div class="meta">Wed, 19 Aug 2026</div></li>
+</ul>
+    </div>
+  </div>
+  <div class="news-col">
+    <div class="section">
+      <div class="section-title"><span class="icon">💹</span>Yahoo Finance</div>
+      <ul class="news-list"><li><a href="https://finance.yahoo.com/markets/commodities/articles/gold-silver-rally-off-ugly-013700131.html" target="_blank">Gold, silver rally off ugly crash, but investors remain on edge</a><div class="meta">2026-08-24T01:37</div></li>
+<li><a href="https://finance.yahoo.com/markets/stocks/articles/honeywell-aerospace-hona-spin-off-111401744.html" target="_blank">Honeywell Aerospace (HONA) Spin-Off Unlocks Standalone Value Amid Strong Market Outlook</a><div class="meta">2026-08-24T11:14</div></li>
+<li><a href="https://finance.yahoo.com/news/shares-flat-asia-iran-sanctions-004936320.html" target="_blank">Shares, oil dip as US sanctions on Iran loom</a><div class="meta">2026-08-24T10:52</div></li>
+<li><a href="https://finance.yahoo.com/markets/stocks/article/this-nvidia-earnings-fact-will-frustrate-you-103234712.html" target="_blank">This Nvidia earnings fact will frustrate you</a><div class="meta">2026-08-24T10:32</div></li>
+<li><a href="https://finance.yahoo.com/technology/ai/articles/ai-scammers-scouring-obituaries-target-103000752.html" target="_blank">AI scammers are scouring obituaries to target widows — one lost $7,000 after being told her late husband evaded taxes</a><div class="meta">2026-08-24T10:30</div></li>
+<li><a href="https://finance.yahoo.com/small-business/articles/royal-vries-folding-carton-plant-111213461.html" target="_blank">Royal De Vries folding-carton plant closes after 152 years</a><div class="meta">2026-08-24T11:12</div></li>
+</ul>
+    </div>
+    <div class="section">
+      <div class="section-title"><span class="icon">📈</span>MarketWatch</div>
+      <ul class="news-list"><li><a href="https://www.marketwatch.com/story/think-medicare-advantage-provides-better-care-for-chronic-conditions-a-new-study-suggests-otherwise-276c7ffd?mod=mw_rss_topstories" target="_blank">Think Medicare Advantage provides better care for chronic conditions? A new study suggests otherwise.</a><div class="intro">Medicare Advantage enrollees with diabetes aren’t healthier than Americans on traditional Medicare —</div><div class="meta">Mon, 24 Aug 2026</div></li>
+<li><a href="https://www.marketwatch.com/story/shes-desperate-my-friend-was-laid-off-and-lost-her-health-insurance-how-can-she-find-affordable-coverage-3b17b553?mod=mw_rss_topstories" target="_blank">‘She looked into COBRA’: My friend was laid off and lost her health insurance. How can she find affordable coverage?</a><div class="intro">“The cost is absolutely ridiculous.”</div><div class="meta">Mon, 24 Aug 2026</div></li>
+<li><a href="https://www.marketwatch.com/story/here-are-two-trades-to-make-ahead-of-a-critical-week-for-markets-as-nvidia-results-and-jackson-hole-loom-8ac3653c?mod=mw_rss_topstories" target="_blank">Here are two trades to make ahead of a critical week for markets as Nvidia results and Jackson Hole loom</a><div class="intro">There’s a way to play more interest rate angst or an Nvidia inspired  tech bounce says Evercore ISI</div><div class="meta">Mon, 24 Aug 2026</div></li>
+<li><a href="https://www.marketwatch.com/story/5-things-to-know-about-the-chinese-e-commerce-juggernaut-shein-ahead-of-its-ipo-ee73d6b1?mod=mw_rss_topstories" target="_blank">5 things to know about the Chinese e-commerce juggernaut Shein ahead of its IPO</a><div class="intro">The fast-fashion giant is aiming to list shares in Hong Kong on Sept. 1. It’s been trying to go publ</div><div class="meta">Mon, 24 Aug 2026</div></li>
+<li><a href="https://www.marketwatch.com/story/my-main-goal-is-to-help-people-im-single-74-with-10-million-burning-a-hole-in-my-pocket-what-should-i-do-0e6112e1?mod=mw_rss_topstories" target="_blank">‘My main goal is to help people’: I’m single, 74, with $10 million burning a hole in my pocket. What should I do?</a><div class="intro">“I also own my home and an SUV outright, with no outstanding debt.”</div><div class="meta">Mon, 24 Aug 2026</div></li>
+<li><a href="https://www.marketwatch.com/story/the-post-world-war-ii-market-shift-is-here-and-bond-yields-could-have-higher-to-go-says-morgan-stanley-9381532c?mod=mw_rss_topstories" target="_blank">The post-World War II market shift is here — and bond yields could have higher to go, says Morgan Stanley</a><div class="intro">Morgan Stanley recommends quality stocks with large market capitalizations, adopters of artificial i</div><div class="meta">Mon, 24 Aug 2026</div></li>
+</ul>
+    </div>
+    <div class="section">
+      <div class="section-title"><span class="icon">🌐</span>ZeroHedge</div>
+      <ul class="news-list"><li><a href="https://www.zerohedge.com/political/interior-department-approves-colorado-river-water-reductions-3-states" target="_blank">Interior Department Approves Colorado River Water Reductions In 3 States</a><div class="intro">Interior Department Approves Colorado River Water Reductions In 3 States
+
+            Authored by Ja</div><div class="meta">Mon, 24 Aug 2026</div></li>
+<li><a href="https://www.zerohedge.com/markets/study-finds-152-polymarket-wallets-likely-exploited-military-secrets-8-million-gains" target="_blank">Study Finds 152 Polymarket Wallets Likely Exploited Military Secrets For $8 Million In Gains</a><div class="intro">Study Finds 152 Polymarket Wallets Likely Exploited Military Secrets For $8 Million In Gains
+
+      </div><div class="meta">Mon, 24 Aug 2026</div></li>
+<li><a href="https://www.zerohedge.com/geopolitical/europe-dodges-rhine-crisis-worst-possible-reason" target="_blank">Europe Dodges A Rhine Crisis For The Worst Possible Reason</a><div class="intro">Europe Dodges A Rhine Crisis For The Worst Possible Reason
+
+            Authored by Natalia Katona v</div><div class="meta">Mon, 24 Aug 2026</div></li>
+<li><a href="https://www.zerohedge.com/political/seeds-political-change-nomura-sees-europe-lurching-right-and-markets-are-fine-it" target="_blank">"Seeds Of Political Change": Nomura Sees Europe Lurching Right, And Markets Are Fine With It</a><div class="intro">"Seeds Of Political Change": Nomura Sees Europe Lurching Right, And Markets Are Fine With It
+
+      </div><div class="meta">Mon, 24 Aug 2026</div></li>
+<li><a href="https://www.zerohedge.com/energy/clean-energy-spending-tracking-toward-record-180-billion-2026" target="_blank">Clean Energy Spending Tracking Toward Record $180 Billion In 2026</a><div class="intro">Clean Energy Spending Tracking Toward Record $180 Billion In 2026
+
+            Authored by Haley Zar</div><div class="meta">Mon, 24 Aug 2026</div></li>
+</ul>
+    </div>
+  </div>
 </div>
 
+<!-- FXStreet 单独一行 -->
 <div class="section">
-  <div class="section-title"><span class="icon">📈</span>东方财富 · 上市公司公告</div>
-  <ul class="news-list"><li><a href="https://data.eastmoney.com/notices/.html" target="_blank">*ST易录:2026年半年度报告</a></li>
-<li><a href="https://data.eastmoney.com/notices/.html" target="_blank">透景生命:2026年半年度报告</a></li>
-<li><a href="https://data.eastmoney.com/notices/.html" target="_blank">*ST易录:2026年半年度报告摘要</a></li>
-<li><a href="https://data.eastmoney.com/notices/.html" target="_blank">中环海陆:2026年半年度报告</a></li>
-<li><a href="https://data.eastmoney.com/notices/.html" target="_blank">美迪凯:杭州美迪凯光电科技股份有限公司2026年半年度报告摘要</a></li>
-<li><a href="https://data.eastmoney.com/notices/.html" target="_blank">美迪凯:杭州美迪凯光电科技股份有限公司2026年半年度报告</a></li>
-</ul>
-</div>
-
-<div class="section">
-  <div class="section-title"><span class="icon">🌍</span>FXStreet · 外汇 / 大宗商品</div>
-  <ul class="news-list"><li><a href="https://www.fxstreet.com/news/euro-positioning-supports-gradual-gains-against-us-dollar-ing-202608241117" target="_blank">Euro: Positioning supports gradual gains against US Dollar – ING</a><div class="meta">Mon, 24 Aug 2026</div></li>
-<li><a href="https://www.fxstreet.com/news/gold-extends-rally-as-markets-await-us-pce-and-warshs-jackson-hole-speech-202608241107" target="_blank">Gold extends rally as markets await US PCE and Warsh’s Jackson Hole speech</a><div class="meta">Mon, 24 Aug 2026</div></li>
-<li><a href="https://www.fxstreet.com/news/new-zealand-dollar-retail-slump-yet-hikes-priced-bbh-202608241106" target="_blank">New Zealand Dollar: Retail slump yet hikes priced – BBH</a><div class="meta">Mon, 24 Aug 2026</div></li>
-<li><a href="https://www.fxstreet.com/news/aud-usd-price-forecast-aussie-eases-from-12-week-highs-with-bulls-still-in-command-202608241049" target="_blank">AUD/USD Price Forecast: Aussie eases from 12-week highs with bulls still in command</a><div class="meta">Mon, 24 Aug 2026</div></li>
-<li><a href="https://www.fxstreet.com/news/gold-price-forecast-xau-usd-pushes-higher-but-overbought-rsi-warns-bulls-202608241026" target="_blank">Gold Price Forecast: XAU/USD pushes higher, but overbought RSI warns bulls</a><div class="meta">Mon, 24 Aug 2026</div></li>
-<li><a href="https://www.fxstreet.com/news/new-zealand-dollar-edges-down-from-highs-amid-soft-retail-consumption-data-202608241002" target="_blank">New Zealand Dollar edges down from highs amid soft retail consumption data</a><div class="meta">Mon, 24 Aug 2026</div></li>
-</ul>
-</div>
-
-<div class="section">
-  <div class="section-title"><span class="icon">📰</span>新浪财经 · 国际财经</div>
-  <ul class="news-list"><li><a href="https://mil.news.sina.com.cn/world/2023-05-10/doc-imythsmx9885321.shtml" target="_blank">日本外相证实：北约拟在日本开设联络处 细节还未定</a><div class="intro">（观察者网讯）美国有线电视新闻网（CNN）5月10日报道，日本外相林芳正当天接受CNN独家专访时证实，日本正与北约就设立亚洲首个联络处进行磋商。</div><div class="meta">1683708478</div></li>
-<li><a href="https://mil.news.sina.com.cn/china/2023-05-10/doc-imythsmv0263467.shtml" target="_blank">美太空公司：中国航天器可捕捉对接卫星 还能摧毁它</a><div class="intro">[文/观察者网 王世纯]我国在酒泉卫星发射中心成功发射的可重复使用试验航天器，在轨飞行276天后，于2023年5月8日成功返回预定着陆场。</div><div class="meta">1683708313</div></li>
-<li><a href="https://mil.news.sina.com.cn/world/2023-05-10/doc-imythsmv0259149.shtml" target="_blank">日本自卫队考虑允许招募文身者 有民众对此表示担忧</a><div class="intro"> （观察者网 讯）招募难一直是近年来困扰日本自卫队的重大问题之一，日本官方也一直为此寻求解决办法，日本防卫省甚至将主意打到有文身人员的头上。</div><div class="meta">1683708078</div></li>
-<li><a href="https://mil.news.sina.com.cn/china/2023-05-10/doc-imythsmv0262045.shtml" target="_blank">要介入台海？北约秘书长：是欧洲组织 只保卫成员国</a><div class="intro">[文/观察者网 王世纯]“北约是个欧洲组织，只会保卫成员国领土。” 据《华盛顿邮报》5月9日报道，日前，北约秘书长斯托尔滕贝格就俄乌冲突前景等议题接受了《华盛顿</div><div class="meta">1683708047</div></li>
-<li><a href="https://mil.news.sina.com.cn/2023-05-10/doc-imythsmx9833111.shtml" target="_blank">美国强烈鼓励邀台湾地区参与世卫大会 中方坚决反对</a><div class="intro">布林肯称强烈鼓励世卫邀请台湾地区参与世卫大会，外交部：坚决反对 外交部发言人汪文斌主持5月10日的例行记者会。会上有记者提问说：美国务卿布林肯9日发表声明称..</div><div class="meta">1683705042</div></li>
-<li><a href="https://mil.news.sina.com.cn/2023-05-10/doc-imythsmw8190028.shtml" target="_blank">首场主场外交大戏，受邀的为何是中亚五国？</a><div class="intro">来源：央视网 中国外交部8日官宣今年中国首场重大主场外交活动。继2022年2月齐聚北京冬奥会后，中亚五国元首将齐聚西安。 中国-中亚峰会将于5月18日-19日在</div><div class="meta">1683702113</div></li>
+  <div class="section-title"><span class="icon">💱</span>FXStreet · Forex & Commodities</div>
+  <ul class="news-list"><li><a href="https://www.fxstreet.com/news/gold-breakout-sustains-upward-momentum-societe-generale-202608241126" target="_blank">Gold: Breakout sustains upward momentum – Societe Generale</a><div class="intro">Societe Generale analysts highlight that Gold has broken out of a small base formation, reclaimed it</div><div class="meta">Mon, 24 Aug 2026</div></li>
+<li><a href="https://www.fxstreet.com/news/euro-positioning-supports-gradual-gains-against-us-dollar-ing-202608241117" target="_blank">Euro: Positioning supports gradual gains against US Dollar – ING</a><div class="intro">ING’s Chris Turner highlights futures data showing asset managers and leveraged funds adding Euro ex</div><div class="meta">Mon, 24 Aug 2026</div></li>
+<li><a href="https://www.fxstreet.com/news/gold-extends-rally-as-markets-await-us-pce-and-warshs-jackson-hole-speech-202608241107" target="_blank">Gold extends rally as markets await US PCE and Warsh’s Jackson Hole speech</a><div class="intro">Gold (XAU/USD) extends its advance on Monday, building on the strong rally seen last week following </div><div class="meta">Mon, 24 Aug 2026</div></li>
+<li><a href="https://www.fxstreet.com/news/new-zealand-dollar-retail-slump-yet-hikes-priced-bbh-202608241106" target="_blank">New Zealand Dollar: Retail slump yet hikes priced – BBH</a><div class="intro">Brown Brothers Harriman’s (BBH) Elias Haddad highlights that New Zealand retail sales volumes unexpe</div><div class="meta">Mon, 24 Aug 2026</div></li>
+<li><a href="https://www.fxstreet.com/news/aud-usd-price-forecast-aussie-eases-from-12-week-highs-with-bulls-still-in-command-202608241049" target="_blank">AUD/USD Price Forecast: Aussie eases from 12-week highs with bulls still in command</a><div class="intro">The Australian Dollar (AUD) ticks lower against the US Dollar (USD) on Monday, but maintains its bro</div><div class="meta">Mon, 24 Aug 2026</div></li>
+<li><a href="https://www.fxstreet.com/news/gold-price-forecast-xau-usd-pushes-higher-but-overbought-rsi-warns-bulls-202608241026" target="_blank">Gold Price Forecast: XAU/USD pushes higher, but overbought RSI warns bulls</a><div class="intro">Gold (XAU/USD) maintains a bullish bias on Monday and trades near its highest levels since mid-May.</div><div class="meta">Mon, 24 Aug 2026</div></li>
 </ul>
 </div>
 
 <div class="footer">
-  数据来源：新浪财经 · 东方财富 · FXStreet · 财联社 &nbsp;|&nbsp; 生成时间：2026-08-24T19:24
+  Sources: BBC Business · Yahoo Finance · MarketWatch · The Guardian · The Economist · ZeroHedge · FXStreet &nbsp;|&nbsp;
+  Generated: 2026-08-24T19:32 &nbsp;·&nbsp; Data from public RSS feeds
 </div>
 </div>
 </body>
