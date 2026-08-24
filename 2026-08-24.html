@@ -2,36 +2,45 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<title>Global Finance Daily | 2026-08-24</title>
+<title>全球金融日报 | 2026-08-24</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif;background:#0d1117;color:#e6edf3;font-size:14px;line-height:1.6}
 a{color:#58a6ff;text-decoration:none}
 a:hover{text-decoration:underline}
-.container{max-width:960px;margin:0 auto;padding:20px}
+.container{max-width:1000px;margin:0 auto;padding:20px}
 
 /* 报头 */
 .header{background:linear-gradient(135deg,#0d1117,#161b22,#1c2128);border:1px solid #30363d;border-radius:14px;padding:28px;margin-bottom:20px}
-.header-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}
-.header h1{font-size:22px;font-weight:700;color:#f0f6fc;letter-spacing:0.5px}
-.header .lang{font-size:12px;color:#484f58;background:#21262d;padding:3px 10px;border-radius:20px;border:1px solid #30363d}
-.header .date{color:#8b949e;font-size:13px;margin-bottom:20px}
-.market-bar{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
-.comm-bar{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:8px}
-.market-card,.comm-card{background:#161b22;border:1px solid #30363d;border-radius:8px;padding:12px;text-align:center}
-.market-card .label,.comm-card .label{font-size:11px;color:#8b949e;margin-bottom:4px}
-.market-card .price,.comm-card .price{font-size:17px;font-weight:700;color:#f0f6fc}
-.market-card .change{font-size:11px;margin-top:2px}
+.header h1{font-size:24px;font-weight:700;color:#f0f6fc;letter-spacing:0.5px;margin-bottom:4px}
+.header .subtitle{color:#8b949e;font-size:13px}
+.header .date{color:#484f58;font-size:12px;margin-top:6px}
+
+/* 市场总览三行 */
+.market-section{margin-top:18px}
+.market-row{margin-bottom:10px}
+.market-row-title{font-size:11px;color:#484f58;text-transform:uppercase;letter-spacing:1.2px;margin-bottom:6px;padding-left:2px}
+.market-grid{display:flex;gap:8px;flex-wrap:wrap}
+.market-grid.three-col{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.market-grid.crypto{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+
+.m-card{background:#161b22;border:1px solid #30363d;border-radius:8px;padding:12px 14px;flex:1;min-width:80px;text-align:center}
+.m-card .m-label{font-size:11px;color:#8b949e;margin-bottom:4px}
+.m-card .m-price{font-size:16px;font-weight:700;color:#f0f6fc;margin-bottom:2px}
+.m-card .m-pct{font-size:11px}
 .up{color:#f85149}
 .down{color:#3fb950}
 .flat{color:#8b949e}
 
-/* 板块 */
-.section{background:#161b22;border:1px solid #30363d;border-radius:12px;padding:20px;margin-bottom:14px}
-.section-title{font-size:13px;font-weight:600;color:#8b949e;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid #21262d;
+/* 涨跌箭头 emoji 辅助 */
+.up::before{content:'↑ '}
+.down::before{content:'↓ '}
+
+/* 区块 */
+.section{background:#161b22;border:1px solid #30363d;border-radius:12px;padding:18px;margin-bottom:14px}
+.section-title{font-size:11px;font-weight:600;color:#8b949e;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid #21262d;
   display:flex;align-items:center;gap:8px;text-transform:uppercase;letter-spacing:1px}
-.section-title .icon{font-size:16px}
 .news-list{list-style:none}
 .news-list li{padding:9px 0;border-bottom:1px solid #21262d;display:flex;flex-direction:column;gap:2px}
 .news-list li:last-child{border-bottom:none}
@@ -40,62 +49,89 @@ a:hover{text-decoration:underline}
 .news-list .intro{font-size:11px;color:#6e7681;margin-top:2px;line-height:1.4}
 .news-list .meta{font-size:10px;color:#484f58;margin-top:2px}
 
-/* 两栏布局（国际新闻用两栏）*/
-.news-grid{display:grid;grid-template-columns:1fr 1fr;gap:0}
-.news-grid .news-col{padding-right:16px}
-.news-grid .news-list li{padding:8px 0}
+/* 两栏 */
+.news-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.news-grid .news-col{display:flex;flex-direction:column;gap:14px}
 
 .footer{text-align:center;padding:24px;color:#484f58;font-size:12px}
 .footer a{color:#484f58}
-
-/* 深色标签 */
-.tag{display:inline-block;padding:1px 6px;border-radius:3px;font-size:10px;margin-right:4px}
-.tag-en{background:#1f2937;color:#9ca3af}
 </style>
 </head>
 <body>
 <div class="container">
 
-<!-- 报头：全球市场总览 -->
+<!-- 报头 -->
 <div class="header">
-  <div class="header-top">
-    <h1>🌏 Global Finance Daily</h1>
-    <span class="lang">EN · ZH</span>
+  <h1>🌏 全球金融日报</h1>
+  <div class="subtitle">每日全球财经热点汇总</div>
+  <div class="date">2026-08-24 &nbsp;·&nbsp; 数据来源：BBC · Yahoo Finance · MarketWatch · Guardian · Economist · ZeroHedge · FXStreet &nbsp;·&nbsp; 生成时间 2026-08-24T19:38</div>
+
+  <!-- 市场总览 -->
+  <div class="market-section">
+    <div class="market-row">
+      <div class="market-row-title">📈 A股指数</div>
+      <div class="market-grid three-col"><div class="m-card">
+    <div class="m-label">上证指数</div>
+    <div class="m-price">3,882.01</div>
+    <div class="m-pct down">-0.59 %</div>
+  </div><div class="m-card">
+    <div class="m-label">深证成指</div>
+    <div class="m-price">13,794.29</div>
+    <div class="m-pct down">-2.13 %</div>
+  </div><div class="m-card">
+    <div class="m-label">创业板指</div>
+    <div class="m-price">3,431.89</div>
+    <div class="m-pct down">-3.21 %</div>
+  </div></div>
+    </div>
+    <div class="market-row">
+      <div class="market-row-title">🛢️ 国际大宗商品</div>
+      <div class="market-grid three-col"><div class="m-card">
+    <div class="m-label">黄金 COMEX</div>
+    <div class="m-price">4,726.31</div>
+    <div class="m-pct flat">—</div>
+  </div><div class="m-card">
+    <div class="m-label">白银 COMEX</div>
+    <div class="m-price">70.32</div>
+    <div class="m-pct flat">—</div>
+  </div><div class="m-card">
+    <div class="m-label">WTI 原油</div>
+    <div class="m-price">85.25</div>
+    <div class="m-pct flat">—</div>
+  </div></div>
+    </div>
+    <div class="market-row">
+      <div class="market-row-title">₿ 主流虚拟货币（24h）</div>
+      <div class="market-grid crypto"><div class="m-card">
+    <div class="m-label">BTC</div>
+    <div class="m-price">78,431.35</div>
+    <div class="m-pct up">+1.52 %</div>
+  </div><div class="m-card">
+    <div class="m-label">ETH</div>
+    <div class="m-price">2,494.68</div>
+    <div class="m-pct up">+2.59 %</div>
+  </div><div class="m-card">
+    <div class="m-label">BNB</div>
+    <div class="m-price">705.12</div>
+    <div class="m-pct up">+1.49 %</div>
+  </div><div class="m-card">
+    <div class="m-label">SOL</div>
+    <div class="m-price">95.82</div>
+    <div class="m-pct up">+1.27 %</div>
+  </div><div class="m-card">
+    <div class="m-label">DOGE</div>
+    <div class="m-price">0.09</div>
+    <div class="m-pct down">-0.26 %</div>
+  </div></div>
+    </div>
   </div>
-  <div class="date">2026-08-24 &nbsp;·&nbsp; Sources: BBC · Yahoo Finance · MarketWatch · Guardian · Economist · ZeroHedge · FXStreet</div>
-  <div class="market-bar"><div class="market-card">
-      <div class="label">🇨🇳 上证</div>
-      <div class="price">3882.0079</div>
-      <div class="change down">-0.59 %</div>
-    </div><div class="market-card">
-      <div class="label">🇨🇳 深证</div>
-      <div class="price">13794.29</div>
-      <div class="change down">-2.13 %</div>
-    </div><div class="market-card">
-      <div class="label">🇨🇳 创业板</div>
-      <div class="price">3431.89</div>
-      <div class="change down">-3.21 %</div>
-    </div></div>
-  <div class="comm-bar"><div class="comm-card">
-      <div class="label">🪙 黄金 COMEX</div>
-      <div class="price">4707.327</div>
-      <div class="unit">USD/盎司</div>
-    </div><div class="comm-card">
-      <div class="label">🥈 白银 COMEX</div>
-      <div class="price">69.734</div>
-      <div class="unit">USD/盎司</div>
-    </div><div class="comm-card">
-      <div class="label">🛢️ WTI 原油</div>
-      <div class="price">85.254</div>
-      <div class="unit">USD/桶</div>
-    </div></div>
 </div>
 
-<!-- 国际财经（两栏） -->
+<!-- 国际财经（双栏） -->
 <div class="news-grid">
   <div class="news-col">
     <div class="section">
-      <div class="section-title"><span class="icon">🇬🇧</span>BBC Business</div>
+      <div class="section-title">🇬🇧 BBC Business</div>
       <ul class="news-list"><li><a href="https://www.bbc.co.uk/news/articles/c0qxew81y83o?at_medium=RSS&at_campaign=rss" target="_blank">Iran faces 'greatest financial offensive ever', says US treasury secretary</a><div class="intro">Scott Bessent says the US will sever all economic ties with the country and that any nation partneri</div><div class="meta">Mon, 24 Aug 2026</div></li>
 <li><a href="https://www.bbc.co.uk/news/articles/crerd8l3pw5o?at_medium=RSS&at_campaign=rss" target="_blank">Graduate job vacancies drop by almost 50% in a year</a><div class="intro">Job site Adzuna said the number of graduate vacancies was the lowest since 2016</div><div class="meta">Mon, 24 Aug 2026</div></li>
 <li><a href="https://www.bbc.co.uk/news/articles/cdeweewjdxno?at_medium=RSS&at_campaign=rss" target="_blank">Shein aims for almost $27bn valuation in stock market debut</a><div class="intro">The fast-fashion giant's shares are due to start trading in Hong Kong on 1 September.</div><div class="meta">Mon, 24 Aug 2026</div></li>
@@ -105,7 +141,7 @@ a:hover{text-decoration:underline}
 </ul>
     </div>
     <div class="section">
-      <div class="section-title"><span class="icon">🏛️</span>The Guardian Business</div>
+      <div class="section-title">🏛️ The Guardian Business</div>
       <ul class="news-list"><li><a href="https://www.theguardian.com/business/live/2026/aug/24/canadian-dollar-dips-us-canada-talks-collapse-trade-war-oil-prices-fall-us-sanctions-on-iran-live-updates" target="_blank">Iran’s rial falls to record low as Scott Bessent warns of ‘economic D-day’ – business live</a><div class="intro">US Treasury secretary to announce sanctions against Tehran at a press conference at 1pm EDT (6pm Lon</div><div class="meta">Mon, 24 Aug 2026</div></li>
 <li><a href="https://www.theguardian.com/business/2026/aug/24/thames-water-investors-board-nationalisation-rescue-deal" target="_blank">Thames Water creditors accused of ‘shuffling deckchairs’ with plan for new board</a><div class="intro">Campaigners say proposal for £10bn rescue deal in bid to avoid nationalisation is a ‘cosy stitch-up’</div><div class="meta">Mon, 24 Aug 2026</div></li>
 <li><a href="https://www.theguardian.com/business/2026/aug/24/uk-productivity-growing-faster-official-figures-resolution-foundation" target="_blank">UK productivity growing faster than official figures suggest, thinktank finds</a><div class="intro">Resolution Foundation suggests economy may finally be emerging from shadow of 2008 financial crisisB</div><div class="meta">Sun, 23 Aug 2026</div></li>
@@ -114,7 +150,7 @@ a:hover{text-decoration:underline}
 </ul>
     </div>
     <div class="section">
-      <div class="section-title"><span class="icon">📊</span>The Economist</div>
+      <div class="section-title">📊 The Economist</div>
       <ul class="news-list"><li><a href="https://www.economist.com/finance-and-economics/2026/08/23/is-scott-bessent-the-fed-chair-donald-trump-always-wanted" target="_blank">Is Scott Bessent the Fed chair Donald Trump always wanted?</a><div class="intro">Perhaps. But his effort to talk bond yields lower is likely to fail</div><div class="meta">Sun, 23 Aug 2026</div></li>
 <li><a href="https://www.economist.com/interactive/trump-tariff-costs-tracker" target="_blank">Tracking the cost of Donald Trump’s tariffs</a><div class="intro">America’s global effective tariff stands at 10.0%</div><div class="meta">Fri, 21 Aug 2026</div></li>
 <li><a href="https://www.economist.com/finance-and-economics/2026/08/20/the-high-cost-of-phantom-tollbooths" target="_blank">The high cost of phantom tollbooths</a><div class="intro">Freedom of navigation is worth preserving</div><div class="meta">Thu, 20 Aug 2026</div></li>
@@ -125,17 +161,17 @@ a:hover{text-decoration:underline}
   </div>
   <div class="news-col">
     <div class="section">
-      <div class="section-title"><span class="icon">💹</span>Yahoo Finance</div>
+      <div class="section-title">💹 Yahoo Finance</div>
       <ul class="news-list"><li><a href="https://finance.yahoo.com/markets/commodities/articles/gold-silver-rally-off-ugly-013700131.html" target="_blank">Gold, silver rally off ugly crash, but investors remain on edge</a><div class="meta">2026-08-24T01:37</div></li>
-<li><a href="https://finance.yahoo.com/technology/ai/articles/neura-robotics-acquires-adlatus-build-111558970.html" target="_blank">Neura Robotics acquires ADLATUS to build physical AI powerhouse</a><div class="meta">2026-08-24T11:15</div></li>
-<li><a href="https://finance.yahoo.com/markets/stocks/articles/honeywell-aerospace-hona-spin-off-111401744.html" target="_blank">Honeywell Aerospace (HONA) Spin-Off Unlocks Standalone Value Amid Strong Market Outlook</a><div class="meta">2026-08-24T11:14</div></li>
-<li><a href="https://finance.yahoo.com/news/shares-flat-asia-iran-sanctions-004936320.html" target="_blank">Shares, oil dip as US sanctions on Iran loom</a><div class="meta">2026-08-24T10:52</div></li>
-<li><a href="https://finance.yahoo.com/markets/stocks/article/this-nvidia-earnings-fact-will-frustrate-you-103234712.html" target="_blank">This Nvidia earnings fact will frustrate you</a><div class="meta">2026-08-24T10:32</div></li>
-<li><a href="https://finance.yahoo.com/small-business/articles/royal-vries-folding-carton-plant-111213461.html" target="_blank">Royal De Vries folding-carton plant closes after 152 years</a><div class="meta">2026-08-24T11:12</div></li>
+<li><a href="https://finance.yahoo.com/markets/stocks/articles/intercontinental-hotels-group-ihg-ai-112621891.html" target="_blank">InterContinental Hotels Group (IHG): AI Search Functions Improve Visibility and Customer Reach</a><div class="meta">2026-08-24T11:26</div></li>
+<li><a href="https://finance.yahoo.com/markets/stocks/articles/navigating-w-w-grainger-gww-112512831.html" target="_blank">Navigating W.W. Grainger’s (GWW) New Competitive Landscape</a><div class="meta">2026-08-24T11:25</div></li>
+<li><a href="https://finance.yahoo.com/markets/stocks/articles/inside-cintas-corp-ctas-operational-112324643.html" target="_blank">Inside Cintas Corp. (CTAS) Operational AI Integration</a><div class="meta">2026-08-24T11:23</div></li>
+<li><a href="https://finance.yahoo.com/technology/ai/articles/sap-se-sap-monetizing-ai-112052918.html" target="_blank">How SAP SE (SAP) Is Monetizing AI Through Joule and Data Cloud</a><div class="meta">2026-08-24T11:20</div></li>
+<li><a href="https://finance.yahoo.com/small-business/articles/menuboard-optimization-drive-roi-112633525.html" target="_blank">How Menuboard Optimization Can Drive ROI</a><div class="meta">2026-08-24T11:26</div></li>
 </ul>
     </div>
     <div class="section">
-      <div class="section-title"><span class="icon">📈</span>MarketWatch</div>
+      <div class="section-title">📈 MarketWatch</div>
       <ul class="news-list"><li><a href="https://www.marketwatch.com/story/think-medicare-advantage-provides-better-care-for-chronic-conditions-a-new-study-suggests-otherwise-276c7ffd?mod=mw_rss_topstories" target="_blank">Think Medicare Advantage provides better care for chronic conditions? A new study suggests otherwise.</a><div class="intro">Medicare Advantage enrollees with diabetes aren’t healthier than Americans on traditional Medicare —</div><div class="meta">Mon, 24 Aug 2026</div></li>
 <li><a href="https://www.marketwatch.com/story/shes-desperate-my-friend-was-laid-off-and-lost-her-health-insurance-how-can-she-find-affordable-coverage-3b17b553?mod=mw_rss_topstories" target="_blank">‘She looked into COBRA’: My friend was laid off and lost her health insurance. How can she find affordable coverage?</a><div class="intro">“The cost is absolutely ridiculous.”</div><div class="meta">Mon, 24 Aug 2026</div></li>
 <li><a href="https://www.marketwatch.com/story/here-are-two-trades-to-make-ahead-of-a-critical-week-for-markets-as-nvidia-results-and-jackson-hole-loom-8ac3653c?mod=mw_rss_topstories" target="_blank">Here are two trades to make ahead of a critical week for markets as Nvidia results and Jackson Hole loom</a><div class="intro">There’s a way to play more interest rate angst or an Nvidia inspired  tech bounce says Evercore ISI</div><div class="meta">Mon, 24 Aug 2026</div></li>
@@ -145,7 +181,7 @@ a:hover{text-decoration:underline}
 </ul>
     </div>
     <div class="section">
-      <div class="section-title"><span class="icon">🌐</span>ZeroHedge</div>
+      <div class="section-title">🌐 ZeroHedge</div>
       <ul class="news-list"><li><a href="https://www.zerohedge.com/political/interior-department-approves-colorado-river-water-reductions-3-states" target="_blank">Interior Department Approves Colorado River Water Reductions In 3 States</a><div class="intro">Interior Department Approves Colorado River Water Reductions In 3 States
 
             Authored by Ja</div><div class="meta">Mon, 24 Aug 2026</div></li>
@@ -166,9 +202,9 @@ a:hover{text-decoration:underline}
   </div>
 </div>
 
-<!-- FXStreet 单独一行 -->
+<!-- FXStreet 单栏 -->
 <div class="section">
-  <div class="section-title"><span class="icon">💱</span>FXStreet · Forex & Commodities</div>
+  <div class="section-title">💱 FXStreet · 外汇与大综商品</div>
   <ul class="news-list"><li><a href="https://www.fxstreet.com/news/gold-breakout-sustains-upward-momentum-societe-generale-202608241126" target="_blank">Gold: Breakout sustains upward momentum – Societe Generale</a><div class="intro">Societe Generale analysts highlight that Gold has broken out of a small base formation, reclaimed it</div><div class="meta">Mon, 24 Aug 2026</div></li>
 <li><a href="https://www.fxstreet.com/news/euro-positioning-supports-gradual-gains-against-us-dollar-ing-202608241117" target="_blank">Euro: Positioning supports gradual gains against US Dollar – ING</a><div class="intro">ING’s Chris Turner highlights futures data showing asset managers and leveraged funds adding Euro ex</div><div class="meta">Mon, 24 Aug 2026</div></li>
 <li><a href="https://www.fxstreet.com/news/gold-extends-rally-as-markets-await-us-pce-and-warshs-jackson-hole-speech-202608241107" target="_blank">Gold extends rally as markets await US PCE and Warsh’s Jackson Hole speech</a><div class="intro">Gold (XAU/USD) extends its advance on Monday, building on the strong rally seen last week following </div><div class="meta">Mon, 24 Aug 2026</div></li>
@@ -179,8 +215,8 @@ a:hover{text-decoration:underline}
 </div>
 
 <div class="footer">
-  Sources: BBC Business · Yahoo Finance · MarketWatch · The Guardian · The Economist · ZeroHedge · FXStreet &nbsp;|&nbsp;
-  Generated: 2026-08-24T19:33 &nbsp;·&nbsp; Data from public RSS feeds
+  数据来源：BBC Business · Yahoo Finance · MarketWatch · The Guardian · The Economist · ZeroHedge · FXStreet &nbsp;|&nbsp;
+  行情来源：新浪财经（A股/大宗）· Binance（虚拟货币）
 </div>
 </div>
 </body>
