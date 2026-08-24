@@ -1,0 +1,14 @@
+{
+  "name": "数据看板中心",
+  "description": "多看板统一入口",
+  "dashboards": [
+    {
+      "id": "housing",
+      "name": "70城房价看板",
+      "description": "国家统计局 · 城市等级36月 + 城市明细11月",
+      "file": "housing_full.html",
+      "icon": "🏠",
+      "tags": ["房价", "房地产", "国家统计局"]
+    }
+  ]
+}

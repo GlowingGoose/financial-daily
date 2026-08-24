@@ -9,6 +9,11 @@
   --bg: #f7f4ef; --paper: #fff; --ink: #1a1714;
   --ink-mid: #5c5650; --ink-light: #9e9590; --rule: #d9d4cc;
 }
+body.embedded .topbar,
+body.embedded .view-tabs,
+body.embedded .footer { display: none; }
+body.embedded .view-pane { padding-top: 0; }
+
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body {
   background: var(--bg); color: var(--ink);
@@ -582,6 +587,11 @@ window.addEventListener('resize', () => {
 });
 
 // 初始化
+// 检测 embed 模式
+if (new URLSearchParams(location.search).get('embed') !== null) {
+  document.body.classList.add('embedded');
+}
+
 drawTierChart();
 </script>
 </body>
