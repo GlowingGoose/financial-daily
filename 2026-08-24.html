@@ -4,173 +4,457 @@
 <meta charset="UTF-8">
 <title>全球金融日报 - 2026-08-24</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
 <style>
+/* ── 变量 ─────────────────────────────────── */
+:root{
+  --bg:#f7f5f0;
+  --paper:#fdfcf9;
+  --ink:#1a1814;
+  --ink-light:#6b6560;
+  --ink-lighter:#a09a94;
+  --accent:#b5362c;
+  --accent-warm:#d4622a;
+  --border:#e5e2dc;
+  --shadow:0 2px 16px rgba(26,24,20,0.06);
+  --radius:4px;
+  --serif:'Noto Serif SC','Georgia',serif;
+  --sans:'Noto Sans SC','PingFang SC',sans-serif;
+}
+
+/* ── 基础 ─────────────────────────────────── */
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif;
-  background:#f5f5f5;color:#1a1a2e;font-size:15px;line-height:1.7}
+body{
+  background:var(--bg);
+  color:var(--ink);
+  font-family:var(--sans);
+  font-size:17px;
+  line-height:1.85;
+  -webkit-font-smoothing:antialiased;
+}
+.container{
+  max-width:1200px;
+  margin:0 auto;
+  padding:48px 48px;
+}
 
-.container{max-width:860px;margin:0 auto;padding:24px 20px}
+/* ── 报头 ─────────────────────────────────── */
+ masthead{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  padding-bottom:24px;
+  border-bottom:3px solid var(--ink);
+  margin-bottom:10px;
+}
+masthead .title{
+  font-family:var(--serif);
+  font-size:56px;
+  font-weight:700;
+  color:var(--ink);
+  letter-spacing:-2px;
+  line-height:1;
+}
+masthead .date-box{
+  text-align:right;
+  flex-shrink:0;
+}
+masthead .date-label{
+  font-size:12px;
+  font-weight:500;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  color:var(--ink-lighter);
+  margin-bottom:4px;
+}
+masthead .date-value{
+  font-family:var(--serif);
+  font-size:30px;
+  font-weight:700;
+  color:var(--ink);
+}
+masthead .sources{
+  font-size:13px;
+  color:var(--ink-lighter);
+  padding-top:8px;
+  border-top:1px solid var(--border);
+  margin-top:14px;
+}
+masthead .sources strong{
+  font-weight:700;
+  color:var(--ink-light);
+  margin-right:6px;
+  letter-spacing:1px;
+}
 
-/* 顶部大标题 */
-.header{text-align:center;margin-bottom:28px}
-.header h1{color:#1a1a2e;font-size:32px;font-weight:700;margin-bottom:8px;letter-spacing:1px}
-.header .date{color:#888;font-size:15px}
+.byline{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  padding:12px 0 28px 0;
+}
+.byline .tag{
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:var(--paper);
+  background:var(--accent);
+  padding:3px 10px;
+  border-radius:2px;
+}
+.byline .time{
+  font-size:12px;
+  color:var(--ink-lighter);
+}
 
-/* 卡片 */
-.card{background:white;border-radius:14px;padding:24px;margin-bottom:18px;
-  box-shadow:0 2px 12px rgba(0,0,0,0.08)}
+/* ── 通用白纸卡片 ──────────────────────────── */
+.card{
+  background:var(--paper);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:28px 30px;
+  margin-bottom:20px;
+  box-shadow:var(--shadow);
+}
 
-/* 市场概况 */
-.market-grid{display:grid;grid-template-columns:1fr;gap:14px}
-.market-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-.market-item{background:#f8f9fa;border-radius:10px;padding:14px 16px}
-.market-item .label{color:#888;font-size:12px;margin-bottom:6px;text-transform:uppercase;letter-spacing:0.5px}
-.market-item .value{color:#1a1a2e;font-size:14px;font-weight:500;line-height:1.6}
+/* ── 市场行情 ─────────────────────────────── */
+.section-label{
+  font-size:18px;
+  font-weight:700;
+  letter-spacing:1px;
+  color:var(--ink);
+  margin-bottom:20px;
+  padding-bottom:12px;
+  border-bottom:2px solid var(--ink);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.section-label .link{
+  font-size:11px;
+  font-weight:400;
+  color:var(--accent);
+  text-decoration:none;
+  letter-spacing:1px;
+}
+.section-label .link:hover{text-decoration:underline}
 
-.up{color:#e74c3c}
-.down{color:#27ae60}
-.flat{color:#888}
+.market-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr;
+  gap:16px;
+}
+.mkt-group{margin-bottom:4px}
+.mkt-group-title{
+  font-size:22px;
+  font-weight:700;
+  letter-spacing:0;
+  color:var(--ink);
+  margin-bottom:12px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.mkt-group-title .link{
+  font-size:12px;
+  font-weight:400;
+  color:var(--accent);
+  text-decoration:none;
+  letter-spacing:0;
+}
+.mkt-group-title .link:hover{text-decoration:underline}
+.mkt-item{
+  padding:14px 0;
+  border-bottom:1px solid var(--border);
+}
+.mkt-item:last-child{border-bottom:none}
+.mkt-name{
+  font-size:14px;
+  color:var(--ink-lighter);
+  margin-bottom:4px;
+}
+.mkt-price{
+  font-family:var(--serif);
+  font-size:24px;
+  font-weight:600;
+  color:var(--ink);
+  letter-spacing:-0.5px;
+}
+.mkt-pct{
+  font-size:15px;
+  font-weight:500;
+  margin-left:10px;
+}
+.up{color:#c0392b}
+.down{color:#2e7d32}
+.flat{color:var(--ink-lighter)}
 
-/* 区块标题 */
-.section-title{color:#e74c3c;font-size:16px;font-weight:600;margin:0 0 14px 0;
-  display:flex;align-items:center;gap:8px;
-  border-bottom:2px solid #f0f2f5;padding-bottom:10px}
-.section-title::before{content:'';display:inline-block;width:4px;height:18px;
-  background:#e74c3c;border-radius:2px;flex-shrink:0}
+/* ── 今日视点（编辑器风格）────────────────── */
+.analysis-card{
+  border-top:3px solid var(--accent);
+}
+.analysis-title{
+  font-family:var(--serif);
+  font-size:30px;
+  font-weight:700;
+  color:var(--ink);
+  margin-bottom:24px;
+  line-height:1.3;
+}
 
-/* 新闻列表 */
-.news-list{margin:0;padding:0;list-style:none}
-.news-list li{color:#333;line-height:1.8;margin-bottom:10px;
-  padding-bottom:10px;border-bottom:1px solid #f8f8f8;
-  display:flex;flex-direction:column;gap:3px}
-.news-list li:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
-.news-list a{color:#e74c3c;font-size:13px;font-weight:500;white-space:nowrap}
-.news-list a:hover{text-decoration:underline}
-.news-list .pub{color:#aaa;font-size:12px}
+.analysis-body{color:var(--ink)}
+.analysis-section{margin-bottom:24px}
+.analysis-section:last-child{margin-bottom:0}
+.analysis-section-title{
+  font-size:15px;
+  font-weight:700;
+  letter-spacing:0;
+  color:var(--accent);
+  margin-bottom:10px;
+  border-bottom:1px solid var(--border);
+  padding-bottom:8px;
+}
+.analysis-body p{
+  font-size:18px;
+  line-height:1.9;
+  color:#3a3632;
+}
 
-.footer{text-align:center;color:#bbb;font-size:12px;margin-top:24px;padding:16px}
+.sectors-grid{display:flex;flex-direction:column;gap:8px}
+.sector-card{
+  display:grid;
+  grid-template-columns:1fr auto 2fr;
+  align-items:center;
+  gap:0;
+  background:#faf9f7;
+  border:1px solid var(--border);
+  border-radius:4px;
+  padding:14px 18px;
+}
+.sector-name{font-weight:700;font-size:17px;color:var(--ink)}
+.sector-sig{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:44px;
+  height:36px;
+  border-radius:6px;
+  font-size:20px;
+  font-weight:700;
+  line-height:1;
+  flex-shrink:0;
+  margin:0 20px;
+}
+.sector-sig.up{background:#fce8e8;color:#c0392b}
+.sector-sig.down{background:#e8f7ee;color:#2e7d32}
+.sector-sig.flat{background:#f0f0f0;color:var(--ink-lighter)}
+.sector-reason{font-size:15px;color:var(--ink-light);line-height:1.6}
+
+.trading-text{color:#2e7d32;font-weight:500;font-size:16px}
+.risk-text{color:#b85c1a;font-size:15px}
+
+/* ── 新闻分类 ─────────────────────────────── */
+.news-section{margin-bottom:4px}
+.news-section-title{
+  font-size:17px;
+  font-weight:700;
+  letter-spacing:0;
+  color:var(--ink);
+  padding:18px 0 12px 0;
+  border-bottom:2px solid var(--ink);
+  margin-bottom:0;
+  display:flex;
+  align-items:center;
+}
+.news-section-title .dot{
+  display:inline-block;
+  width:10px;
+  height:10px;
+  border-radius:50%;
+  background:var(--ink);
+  margin-right:12px;
+  flex-shrink:0;
+}
+.news-section-title.headline{border-bottom-color:#c0392b;color:#c0392b}
+.news-section-title.headline .dot{background:#c0392b}
+.news-section-title.macro{border-bottom-color:#b85c1a;color:#b85c1a}
+.news-section-title.macro .dot{background:#b85c1a}
+.news-section-title.market{border-bottom-color:#2e7d32;color:#2e7d32}
+.news-section-title.market .dot{background:#2e7d32}
+.news-section-title.company{border-bottom-color:#1565c0;color:#1565c0}
+.news-section-title.company .dot{background:#1565c0}
+
+.news-list{list-style:none;padding:0;margin:0}
+.news-item{
+  padding:16px 0;
+  border-bottom:1px solid var(--border);
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+}
+.news-item:last-child{border-bottom:none}
+.news-summary{font-size:17px;line-height:1.8;color:#2a2622}
+.news-meta{display:flex;align-items:center;gap:14px}
+.news-meta a{font-size:12px;color:var(--accent);text-decoration:none;font-weight:500}
+.news-meta a:hover{text-decoration:underline}
+.news-meta .pub{font-size:12px;color:var(--ink-lighter)}
+
+/* 备份原文 - 原生details样式 */
+.backup-details{
+  margin-top:16px;
+  padding-top:16px;
+  border-top:2px solid var(--border);
+}
+.backup-details summary{
+  list-style:none;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  cursor:pointer;
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:2.5px;
+  text-transform:uppercase;
+  color:var(--ink-lighter);
+  user-select:none;
+}
+.backup-details summary::-webkit-details-marker{display:none}
+.backup-details summary::before{
+  content:'';
+  display:inline-block;
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  background:var(--ink);
+  flex-shrink:0;
+}
+.backup-details[open] summary::before{background:var(--accent)}
+.backup-section{padding-top:14px}
+.backup-group{margin-bottom:20px}
+.backup-group-title{
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:var(--ink-lighter);
+  padding:10px 0 8px 0;
+  border-bottom:1px solid var(--border);
+}
+.backup-item{
+  padding:10px 0;
+  border-bottom:1px solid var(--border);
+  display:flex;
+  flex-direction:column;
+  gap:4px;
+}
+.backup-item:last-child{border-bottom:none}
+.backup-text{font-size:14px;line-height:1.7;color:#3a3632}
+.backup-meta{font-size:11px;color:var(--ink-lighter)}
+
+/* ── 页脚 ─────────────────────────────────── */
+.footer{
+  text-align:center;
+  padding:40px 0 20px 0;
+  font-size:12px;
+  color:var(--ink-lighter);
+  border-top:1px solid var(--border);
+  margin-top:12px;
+}
+
+/* ── 响应式 ──────────────────────────────── */
+@media(max-width:640px){
+  .container{padding:28px 20px}
+  masthead{flex-direction:column;align-items:flex-start;gap:12px}
+  masthead .title{font-size:32px}
+  .market-grid{grid-template-columns:1fr}
+  .sector-row{grid-template-columns:80px 28px 1fr}
+  .masthead .sources{font-size:11px}
+}
 </style>
 </head>
 <body>
 <div class="container">
 
-<!-- 顶部大标题 -->
-<div class="header">
-  <h1>🌏 全球金融日报</h1>
-  <div class="date">2026-08-24 &nbsp;·&nbsp; 数据来源：BBC · Yahoo Finance · MarketWatch · Guardian · Economist · ZeroHedge · FXStreet</div>
+<!-- 报头 -->
+<masthead>
+  <div>
+    <div class="title">全球金融日报</div>
+    <div class="sources"><strong>信息来源：</strong>BBC · Yahoo Finance · MarketWatch · The Guardian · The Economist · ZeroHedge · FXStreet</div>
+  </div>
+  <div class="date-box">
+    <div class="date-label">刊例日期</div>
+    <div class="date-value">2026-08-24</div>
+  </div>
+</masthead>
+
+<div class="byline">
+  <div class="tag">Daily Brief</div>
+  <div class="time">生成于 2026-08-24T19:38</div>
 </div>
 
-<!-- 市场概况卡片 -->
+<!-- 市场行情 -->
 <div class="card">
-  <h2 class="section-title">🌟 市场概况</h2>
+  <div class="section-label" style="font-size:22px;letter-spacing:2px">市场行情</div>
   <div class="market-grid">
-    <div class="market-row">
-      <div class="market-item">
-        <div class="label">📈 A股</div>
-        <div class="value">上证 3,882.01 (-0.59 %) / 深证 13,794.29 (-2.13 %) / 创业板 3,431.89 (-3.21 %)</div>
-      </div>
-      <div class="market-item">
-        <div class="label">🛢️ 国际大宗商品</div>
-        <div class="value">黄金 $4,726.31/oz / 白银 $70.32/oz / WTI原油 $85.25/桶</div>
-      </div>
-      <div class="market-item">
-        <div class="label">₿ 主流虚拟货币（24h）</div>
-        <div class="value">BTC $78,431.35 (+1.52 %) / ETH $2,494.68 (+2.59 %) / BNB $705.12 (+1.49 %) / SOL $95.82 (+1.27 %) / DOGE 0.0924 (-0.26 %)</div>
-      </div>
+    <div class="mkt-group">
+      <div class="mkt-group-title">📈 <a class="link" href="https://finance.sina.com.cn/realstock/company/sh000001/nc.shtml" target="_blank">A股</a></div>
+      <div class="mkt-item"><div class="mkt-name">上证指数</div><div class="mkt-price">3,882.01 <span class="mkt-pct down">-0.59%</span></div></div>
+      <div class="mkt-item"><div class="mkt-name">深证成指</div><div class="mkt-price">13,794.29 <span class="mkt-pct down">-2.13%</span></div></div>
+      <div class="mkt-item"><div class="mkt-name">创业板指</div><div class="mkt-price">3,431.89 <span class="mkt-pct down">-3.21%</span></div></div>
+    </div>
+    <div class="mkt-group">
+      <div class="mkt-group-title">🛢️ <a class="link" href="https://www.kitco.com/charts/livegold.html" target="_blank">大宗商品</a></div>
+      <div class="mkt-item"><div class="mkt-name">黄金(GC)</div><div class="mkt-price">$4,726.31 <span class="mkt-pct flat">0.00%</span></div></div>
+      <div class="mkt-item"><div class="mkt-name">白银(SI)</div><div class="mkt-price">$70.32 <span class="mkt-pct flat">0.00%</span></div></div>
+      <div class="mkt-item"><div class="mkt-name">WTI原油(CL)</div><div class="mkt-price">$85.25 <span class="mkt-pct flat">0.00%</span></div></div>
+    </div>
+    <div class="mkt-group">
+      <div class="mkt-group-title">₿ <a class="link" href="https://www.binance.com/zh-CN/price/bitcoin" target="_blank">加密货币</a></div>
+      <div class="mkt-item"><div class="mkt-name">BTC</div><div class="mkt-price">78,431.35 <span class="mkt-pct up">+1.52%</span></div></div>
+      <div class="mkt-item"><div class="mkt-name">ETH</div><div class="mkt-price">2,494.68 <span class="mkt-pct up">+2.59%</span></div></div>
+      <div class="mkt-item"><div class="mkt-name">BNB</div><div class="mkt-price">705.12 <span class="mkt-pct up">+1.49%</span></div></div>
     </div>
   </div>
 </div>
 
-
-  <div class="section">
-    <h2 class="section-title">🇬🇧 BBC Business</h2>
-    <ul class="news-list">
-    <li>Iran faces 'greatest financial offensive ever', says US treasury secretary。Scott Bessent says the US will sever all economic ties with the c <a href="https://www.bbc.co.uk/news/articles/c0qxew81y83o?at_medium=RSS&at_campaign=rss" target="_blank">原文 →</a> <span class="pub">Mon, 24 Aug 2026</span></li>
-<li>Graduate job vacancies drop by almost 50% in a year。Job site Adzuna said the number of graduate vacancies was the lowest since 2016 <a href="https://www.bbc.co.uk/news/articles/crerd8l3pw5o?at_medium=RSS&at_campaign=rss" target="_blank">原文 →</a> <span class="pub">Mon, 24 Aug 2026</span></li>
-<li>Shein aims for almost $27bn valuation in stock market debut。The fast-fashion giant's shares are due to start trading in Hong Kong on 1 Septe <a href="https://www.bbc.co.uk/news/articles/cdeweewjdxno?at_medium=RSS&at_campaign=rss" target="_blank">原文 →</a> <span class="pub">Mon, 24 Aug 2026</span></li>
-<li>Pubs and hotels could see business rates reformed after review。The review of how rates are calculated in England and Wales could lead to ref <a href="https://www.bbc.co.uk/news/articles/c8xnxy89gv7o?at_medium=RSS&at_campaign=rss" target="_blank">原文 →</a> <span class="pub">Mon, 24 Aug 2026</span></li>
-<li>How to get £2,000 to play computer games at university。Roehampton University offers students a year;y scholarship to play esports alongside  <a href="https://www.bbc.co.uk/news/articles/cz647wlvg1do?at_medium=RSS&at_campaign=rss" target="_blank">原文 →</a> <span class="pub">Sun, 23 Aug 2026</span></li>
-<li>'I didn't speak the Queen's English': Why people worry about their accents。A survey on attitudes towards accents suggests that so-called "ac <a href="https://www.bbc.co.uk/news/articles/c05q318501yo?at_medium=RSS&at_campaign=rss" target="_blank">原文 →</a> <span class="pub">Sun, 23 Aug 2026</span></li>
-    </ul>
+<!-- 今日视点 -->
+<div class="card analysis-card">
+  <div class="analysis-title">全球市场波动与投资展望</div>
+  <div class="analysis-body">
+    <div class="analysis-section">
+      <div class="analysis-section-title">今日概要</div>
+      <p>地缘政治｜美国对伊朗实施严厉制裁，威胁切断所有经济联系，引发市场对原油供应的担忧｜宏观经济｜英国就业市场持续疲软，职位空缺创2016年以来新低，同时中国就业市场也表现疲软｜国际金融市场｜黄金、白银价格反弹但投资者持谨慎态度，债券收益率或继续上升，欧元对美元逐步走强｜产业与公司｜快时尚巨头Shein计划在香港上市，估值达270亿美元；AI技术应用加速，洲际酒店、Cintas、SAP等公司积极布局｜中国市场｜A股整体下跌，创业板跌幅超3%，市场情绪低迷，Shein上市计划或为电商板块带来短期提振｜</p>
+    </div>
+    <div class="analysis-section">
+      <div class="analysis-section-title">政策与宏观</div>
+      <p>美国对伊朗的制裁政策将对全球能源市场产生深远影响，可能推高原油价格并加剧地缘政治紧张局势。英国正考虑对酒吧和酒店的商业税率进行改革，旨在减轻企业负担并促进经济复苏。中国就业市场持续疲软，政府需采取更多措施以刺激就业增长和消费复苏。</p>
+    </div>
+    <div class="analysis-section">
+      <div class="analysis-section-title">板块机会</div>
+      <div class="sectors-grid"><div class="sector-card"><span class="sector-name">黄金</span><span class="sector-sig up">↑</span><span class="sector-reason">受地缘政治风险和避险情绪推动，黄金价格延续涨势</span></div><div class="sector-card"><span class="sector-name">原油</span><span class="sector-sig up">↑</span><span class="sector-reason">伊朗制裁威胁加剧供应担忧，推高原油价格</span></div><div class="sector-card"><span class="sector-name">AI技术</span><span class="sector-sig up">↑</span><span class="sector-reason">AI应用加速，洲际酒店、Cintas、SAP等公司积极布局</span></div><div class="sector-card"><span class="sector-name">快时尚</span><span class="sector-sig up">↑</span><span class="sector-reason">Shein上市计划提振市场对快时尚行业的信心</span></div><div class="sector-card"><span class="sector-name">就业市场</span><span class="sector-sig down">↓</span><span class="sector-reason">英国和中国就业数据均表现疲软，市场对经济复苏的担忧加剧</span></div></div>
+    </div>
+    <div class="analysis-section">
+      <div class="analysis-section-title">操作建议</div>
+      <p class="trading-text">建议投资者关注黄金和原油的短期交易机会，同时可考虑逢低布局AI技术相关股票。快时尚板块受Shein上市消息提振，可适度参与。整体市场波动加剧，建议控制仓位，防范风险。</p>
+    </div>
+    <div class="analysis-section">
+      <div class="analysis-section-title">风险提示</div>
+      <p class="risk-text">主要风险包括地缘政治紧张局势升级、全球经济增长放缓以及主要央行货币政策转向。投资者需密切关注美国PCE数据和杰克逊霍尔会议动态，防范市场情绪突变。</p>
+    </div>
   </div>
+</div>
 
-  <div class="section">
-    <h2 class="section-title">💹 Yahoo Finance</h2>
-    <ul class="news-list">
-    <li>Gold, silver rally off ugly crash, but investors remain on edge <a href="https://finance.yahoo.com/markets/commodities/articles/gold-silver-rally-off-ugly-013700131.html" target="_blank">原文 →</a> <span class="pub">2026-08-24T01:37</span></li>
-<li>InterContinental Hotels Group (IHG): AI Search Functions Improve Visibility and Customer Reach <a href="https://finance.yahoo.com/markets/stocks/articles/intercontinental-hotels-group-ihg-ai-112621891.html" target="_blank">原文 →</a> <span class="pub">2026-08-24T11:26</span></li>
-<li>Navigating W.W. Grainger’s (GWW) New Competitive Landscape <a href="https://finance.yahoo.com/markets/stocks/articles/navigating-w-w-grainger-gww-112512831.html" target="_blank">原文 →</a> <span class="pub">2026-08-24T11:25</span></li>
-<li>Inside Cintas Corp. (CTAS) Operational AI Integration <a href="https://finance.yahoo.com/markets/stocks/articles/inside-cintas-corp-ctas-operational-112324643.html" target="_blank">原文 →</a> <span class="pub">2026-08-24T11:23</span></li>
-<li>How SAP SE (SAP) Is Monetizing AI Through Joule and Data Cloud <a href="https://finance.yahoo.com/technology/ai/articles/sap-se-sap-monetizing-ai-112052918.html" target="_blank">原文 →</a> <span class="pub">2026-08-24T11:20</span></li>
-<li>How Menuboard Optimization Can Drive ROI <a href="https://finance.yahoo.com/small-business/articles/menuboard-optimization-drive-roi-112633525.html" target="_blank">原文 →</a> <span class="pub">2026-08-24T11:26</span></li>
-    </ul>
-  </div>
-
-  <div class="section">
-    <h2 class="section-title">📈 MarketWatch</h2>
-    <ul class="news-list">
-    <li>Think Medicare Advantage provides better care for chronic conditions? A new study suggests otherwise.。Medicare Advantage enrollees with diab <a href="https://www.marketwatch.com/story/think-medicare-advantage-provides-better-care-for-chronic-conditions-a-new-study-suggests-otherwise-276c7ffd?mod=mw_rss_topstories" target="_blank">原文 →</a> <span class="pub">Mon, 24 Aug 2026</span></li>
-<li>‘She looked into COBRA’: My friend was laid off and lost her health insurance. How can she find affordable coverage?。“The cost is absolutely <a href="https://www.marketwatch.com/story/shes-desperate-my-friend-was-laid-off-and-lost-her-health-insurance-how-can-she-find-affordable-coverage-3b17b553?mod=mw_rss_topstories" target="_blank">原文 →</a> <span class="pub">Mon, 24 Aug 2026</span></li>
-<li>Here are two trades to make ahead of a critical week for markets as Nvidia results and Jackson Hole loom。There’s a way to play more interest <a href="https://www.marketwatch.com/story/here-are-two-trades-to-make-ahead-of-a-critical-week-for-markets-as-nvidia-results-and-jackson-hole-loom-8ac3653c?mod=mw_rss_topstories" target="_blank">原文 →</a> <span class="pub">Mon, 24 Aug 2026</span></li>
-<li>5 things to know about the Chinese e-commerce juggernaut Shein ahead of its IPO。The fast-fashion giant is aiming to list shares in Hong Kong <a href="https://www.marketwatch.com/story/5-things-to-know-about-the-chinese-e-commerce-juggernaut-shein-ahead-of-its-ipo-ee73d6b1?mod=mw_rss_topstories" target="_blank">原文 →</a> <span class="pub">Mon, 24 Aug 2026</span></li>
-<li>‘My main goal is to help people’: I’m single, 74, with $10 million burning a hole in my pocket. What should I do?。“I also own my home and an <a href="https://www.marketwatch.com/story/my-main-goal-is-to-help-people-im-single-74-with-10-million-burning-a-hole-in-my-pocket-what-should-i-do-0e6112e1?mod=mw_rss_topstories" target="_blank">原文 →</a> <span class="pub">Mon, 24 Aug 2026</span></li>
-<li>The post-World War II market shift is here — and bond yields could have higher to go, says Morgan Stanley。Morgan Stanley recommends quality  <a href="https://www.marketwatch.com/story/the-post-world-war-ii-market-shift-is-here-and-bond-yields-could-have-higher-to-go-says-morgan-stanley-9381532c?mod=mw_rss_topstories" target="_blank">原文 →</a> <span class="pub">Mon, 24 Aug 2026</span></li>
-    </ul>
-  </div>
-
-  <div class="section">
-    <h2 class="section-title">🏛️ The Guardian</h2>
-    <ul class="news-list">
-    <li>Iran’s rial falls to record low as Scott Bessent warns of ‘economic D-day’ – business live。US Treasury secretary to announce sanctions again <a href="https://www.theguardian.com/business/live/2026/aug/24/canadian-dollar-dips-us-canada-talks-collapse-trade-war-oil-prices-fall-us-sanctions-on-iran-live-updates" target="_blank">原文 →</a> <span class="pub">Mon, 24 Aug 2026</span></li>
-<li>Thames Water creditors accused of ‘shuffling deckchairs’ with plan for new board。Campaigners say proposal for £10bn rescue deal in bid to av <a href="https://www.theguardian.com/business/2026/aug/24/thames-water-investors-board-nationalisation-rescue-deal" target="_blank">原文 →</a> <span class="pub">Mon, 24 Aug 2026</span></li>
-<li>UK productivity growing faster than official figures suggest, thinktank finds。Resolution Foundation suggests economy may finally be emerging <a href="https://www.theguardian.com/business/2026/aug/24/uk-productivity-growing-faster-official-figures-resolution-foundation" target="_blank">原文 →</a> <span class="pub">Sun, 23 Aug 2026</span></li>
-<li>Fast-fashion giant Shein sets cut-price $27bn valuation for Hong Kong IPO。China-based retailer swung to $99m loss in first quarter and faces <a href="https://www.theguardian.com/business/2026/aug/24/fashion-giant-shein-27bn-valuation-hong-kong-market-debut" target="_blank">原文 →</a> <span class="pub">Mon, 24 Aug 2026</span></li>
-<li>UK graduate job vacancies plunge to lowest in a decade。Just 8,383 jobs for people leaving university were advertised in July, says recruitme <a href="https://www.theguardian.com/business/2026/aug/24/uk-graduate-job-vacancies-plunge-adzuna" target="_blank">原文 →</a> <span class="pub">Mon, 24 Aug 2026</span></li>
-<li>Government vows to make business rate valuations for pubs and hotels fairer。Review will look at improving system for English and Welsh hospi <a href="https://www.theguardian.com/business/2026/aug/24/government-vows-to-make-business-rate-valuations-for-pubs-and-hotels-fairer" target="_blank">原文 →</a> <span class="pub">Sun, 23 Aug 2026</span></li>
-    </ul>
-  </div>
-
-  <div class="section">
-    <h2 class="section-title">📊 The Economist</h2>
-    <ul class="news-list">
-    <li>Is Scott Bessent the Fed chair Donald Trump always wanted?。Perhaps. But his effort to talk bond yields lower is likely to fail <a href="https://www.economist.com/finance-and-economics/2026/08/23/is-scott-bessent-the-fed-chair-donald-trump-always-wanted" target="_blank">原文 →</a> <span class="pub">Sun, 23 Aug 2026</span></li>
-<li>Tracking the cost of Donald Trump’s tariffs。America’s global effective tariff stands at 10.0% <a href="https://www.economist.com/interactive/trump-tariff-costs-tracker" target="_blank">原文 →</a> <span class="pub">Fri, 21 Aug 2026</span></li>
-<li>The high cost of phantom tollbooths。Freedom of navigation is worth preserving <a href="https://www.economist.com/finance-and-economics/2026/08/20/the-high-cost-of-phantom-tollbooths" target="_blank">原文 →</a> <span class="pub">Thu, 20 Aug 2026</span></li>
-<li>However you measure it, China’s job market is weak。Some workers are going back to the farm <a href="https://www.economist.com/finance-and-economics/2026/08/20/however-you-measure-it-chinas-job-market-is-weak" target="_blank">原文 →</a> <span class="pub">Thu, 20 Aug 2026</span></li>
-<li>Why bond markets are unnerving rich-world politicians。As stocks rise ever higher, yields have been climbing ominously <a href="https://www.economist.com/finance-and-economics/2026/08/19/why-bond-markets-are-unnerving-rich-world-politicians" target="_blank">原文 →</a> <span class="pub">Wed, 19 Aug 2026</span></li>
-<li>Stock indices no longer reflect equity reality。Lies, damned lies and stock markets <a href="https://www.economist.com/finance-and-economics/2026/08/18/stock-indices-no-longer-reflect-equity-reality" target="_blank">原文 →</a> <span class="pub">Tue, 18 Aug 2026</span></li>
-    </ul>
-  </div>
-
-  <div class="section">
-    <h2 class="section-title">🌐 ZeroHedge</h2>
-    <ul class="news-list">
-    <li>Interior Department Approves Colorado River Water Reductions In 3 States。Authored by Ja <a href="https://www.zerohedge.com/political/interior-department-approves-colorado-river-water-reductions-3-states" target="_blank">原文 →</a> <span class="pub">Mon, 24 Aug 2026</span></li>
-<li>Study Finds 152 Polymarket Wallets Likely Exploited Military Secrets For $8 Million In Gains <a href="https://www.zerohedge.com/markets/study-finds-152-polymarket-wallets-likely-exploited-military-secrets-8-million-gains" target="_blank">原文 →</a> <span class="pub">Mon, 24 Aug 2026</span></li>
-<li>Europe Dodges A Rhine Crisis For The Worst Possible Reason。Authored by Natalia Katona v <a href="https://www.zerohedge.com/geopolitical/europe-dodges-rhine-crisis-worst-possible-reason" target="_blank">原文 →</a> <span class="pub">Mon, 24 Aug 2026</span></li>
-<li>"Seeds Of Political Change": Nomura Sees Europe Lurching Right, And Markets Are Fine With It <a href="https://www.zerohedge.com/political/seeds-political-change-nomura-sees-europe-lurching-right-and-markets-are-fine-it" target="_blank">原文 →</a> <span class="pub">Mon, 24 Aug 2026</span></li>
-<li>Clean Energy Spending Tracking Toward Record $180 Billion In 2026。Authored by Haley Zar <a href="https://www.zerohedge.com/energy/clean-energy-spending-tracking-toward-record-180-billion-2026" target="_blank">原文 →</a> <span class="pub">Mon, 24 Aug 2026</span></li>
-<li>Anti-Social Media。Social media may have been built to connect people, but entertainment <a href="https://www.zerohedge.com/technology/anti-social-media" target="_blank">原文 →</a> <span class="pub">Mon, 24 Aug 2026</span></li>
-    </ul>
-  </div>
-
-  <div class="section">
-    <h2 class="section-title">💱 FXStreet 外汇与大综商品</h2>
-    <ul class="news-list">
-    <li>Gold: Breakout sustains upward momentum – Societe Generale。Societe Generale analysts highlight that Gold has broken out of a small base form <a href="https://www.fxstreet.com/news/gold-breakout-sustains-upward-momentum-societe-generale-202608241126" target="_blank">原文 →</a> <span class="pub">Mon, 24 Aug 2026</span></li>
-<li>Euro: Positioning supports gradual gains against US Dollar – ING。ING’s Chris Turner highlights futures data showing asset managers and lever <a href="https://www.fxstreet.com/news/euro-positioning-supports-gradual-gains-against-us-dollar-ing-202608241117" target="_blank">原文 →</a> <span class="pub">Mon, 24 Aug 2026</span></li>
-<li>Gold extends rally as markets await US PCE and Warsh’s Jackson Hole speech。Gold (XAU/USD) extends its advance on Monday, building on the str <a href="https://www.fxstreet.com/news/gold-extends-rally-as-markets-await-us-pce-and-warshs-jackson-hole-speech-202608241107" target="_blank">原文 →</a> <span class="pub">Mon, 24 Aug 2026</span></li>
-<li>New Zealand Dollar: Retail slump yet hikes priced – BBH。Brown Brothers Harriman’s (BBH) Elias Haddad highlights that New Zealand retail sale <a href="https://www.fxstreet.com/news/new-zealand-dollar-retail-slump-yet-hikes-priced-bbh-202608241106" target="_blank">原文 →</a> <span class="pub">Mon, 24 Aug 2026</span></li>
-<li>AUD/USD Price Forecast: Aussie eases from 12-week highs with bulls still in command。The Australian Dollar (AUD) ticks lower against the US D <a href="https://www.fxstreet.com/news/aud-usd-price-forecast-aussie-eases-from-12-week-highs-with-bulls-still-in-command-202608241049" target="_blank">原文 →</a> <span class="pub">Mon, 24 Aug 2026</span></li>
-<li>Gold Price Forecast: XAU/USD pushes higher, but overbought RSI warns bulls。Gold (XAU/USD) maintains a bullish bias on Monday and trades near <a href="https://www.fxstreet.com/news/gold-price-forecast-xau-usd-pushes-higher-but-overbought-rsi-warns-bulls-202608241026" target="_blank">原文 →</a> <span class="pub">Mon, 24 Aug 2026</span></li>
-    </ul>
-  </div>
-
+<!-- 新闻 -->
+<div class="news-section"><div class="news-section-title headline"><span class="dot"></span>🔴 头条</div><ul class="news-list"><li class="news-item"><span class="news-summary">美国财长警告伊朗将面临史上最严重金融制裁，切断所有经济联系，任何与伊合作国家面临制裁风险</span><span class="news-meta"><a href="https://www.bbc.co.uk/news/articles/c0qxew81y83o?at_medium=RSS&at_campaign=rss" target="_blank">原文</a><span class="pub">Aug-24 08</span></span></li><li class="news-item"><span class="news-summary">伊朗里亚尔跌至历史新低，美国财长警告“经济D日”</span><span class="news-meta"><a href="https://www.theguardian.com/business/live/2026/aug/24/canadian-dollar-dips-us-canada-talks-collapse-trade-war-oil-prices-fall-us-sanctions-on-iran-live-updates" target="_blank">原文</a><span class="pub">Aug-24 08</span></span></li><li class="news-item"><span class="news-summary">斯科特·贝森特会成为特朗普想要的联储主席吗？</span><span class="news-meta"><a href="https://www.economist.com/finance-and-economics/2026/08/23/is-scott-bessent-the-fed-chair-donald-trump-always-wanted" target="_blank">原文</a><span class="pub">Aug-23 08</span></span></li><li class="news-item"><span class="news-summary">特朗普关税的成本追踪</span><span class="news-meta"><a href="https://www.economist.com/interactive/trump-tariff-costs-tracker" target="_blank">原文</a><span class="pub">Aug-21 08</span></span></li><li class="news-item"><span class="news-summary">无论以何种标准衡量，中国的就业市场都很疲软</span><span class="news-meta"><a href="https://www.economist.com/finance-and-economics/2026/08/20/however-you-measure-it-chinas-job-market-is-weak" target="_blank">原文</a><span class="pub">Aug-20 08</span></span></li></ul></div><div class="news-section"><div class="news-section-title market"><span class="dot"></span>🟡 市场</div><ul class="news-list"><li class="news-item"><span class="news-summary">快时尚巨头Shein计划以270亿美元估值在港上市，9月1日开始交易</span><span class="news-meta"><a href="https://www.bbc.co.uk/news/articles/cdeweewjdxno?at_medium=RSS&at_campaign=rss" target="_blank">原文</a><span class="pub">Aug-24 08</span></span></li><li class="news-item"><span class="news-summary">英伟达财报和杰克逊霍尔会议前夕，市场面临关键一周，两种交易策略可供参考</span><span class="news-meta"><a href="https://www.marketwatch.com/story/here-are-two-trades-to-make-ahead-of-a-critical-week-for-markets-as-nvidia-results-and-jackson-hole-loom-8ac3653c?mod=mw_rss_topstories" target="_blank">原文</a><span class="pub">Aug-24 08</span></span></li><li class="news-item"><span class="news-summary">快时尚巨头Shein计划9月1日在香港上市，IPO前需了解的5件事</span><span class="news-meta"><a href="https://www.marketwatch.com/story/5-things-to-know-about-the-chinese-e-commerce-juggernaut-shein-ahead-of-its-ipo-ee73d6b1?mod=mw_rss_topstories" target="_blank">原文</a><span class="pub">Aug-24 08</span></span></li><li class="news-item"><span class="news-summary">摩根士丹利：二战后市场格局转变，债券收益率或将继续上升，建议投资优质大盘股和AI技术采用者</span><span class="news-meta"><a href="https://www.marketwatch.com/story/the-post-world-war-ii-market-shift-is-here-and-bond-yields-could-have-higher-to-go-says-morgan-stanley-9381532c?mod=mw_rss_topstories" target="_blank">原文</a><span class="pub">Aug-24 08</span></span></li><li class="news-item"><span class="news-summary">快时尚巨头Shein以270亿美元估值在香港IPO，中国零售商第一季度亏损9900万美元，面临环境问题审查</span><span class="news-meta"><a href="https://www.theguardian.com/business/2026/aug/24/fashion-giant-shein-27bn-valuation-hong-kong-market-debut" target="_blank">原文</a><span class="pub">Aug-24 08</span></span></li><li class="news-item"><span class="news-summary">债券市场为何让富裕国家的政客们感到不安</span><span class="news-meta"><a href="https://www.economist.com/finance-and-economics/2026/08/19/why-bond-markets-are-unnerving-rich-world-politicians" target="_blank">原文</a><span class="pub">Aug-19 08</span></span></li><li class="news-item"><span class="news-summary">股票指数不再反映股市现实</span><span class="news-meta"><a href="https://www.economist.com/finance-and-economics/2026/08/18/stock-indices-no-longer-reflect-equity-reality" target="_blank">原文</a><span class="pub">Aug-18 08</span></span></li><li class="news-item"><span class="news-summary">研究发现152个Polymarket钱包可能利用军事机密获利800万美元</span><span class="news-meta"><a href="https://www.zerohedge.com/markets/study-finds-152-polymarket-wallets-likely-exploited-military-secrets-8-million-gains" target="_blank">原文</a><span class="pub">Aug-24 08</span></span></li><li class="news-item"><span class="news-summary">“政治变革的种子”：野村证券认为欧洲正转向右翼，市场对此表示接受</span><span class="news-meta"><a href="https://www.zerohedge.com/political/seeds-political-change-nomura-sees-europe-lurching-right-and-markets-are-fine-it" target="_blank">原文</a><span class="pub">Aug-24 08</span></span></li><li class="news-item"><span class="news-summary">黄金延续涨势，市场等待美国PCE数据及沃什在杰克逊霍尔的讲话</span><span class="news-meta"><a href="https://www.fxstreet.com/news/gold-extends-rally-as-markets-await-us-pce-and-warshs-jackson-hole-speech-202608241107" target="_blank">原文</a><span class="pub">Aug-24 08</span></span></li></ul></div><div class="news-section"><div class="news-section-title company"><span class="dot"></span>🔵 公司</div><ul class="news-list"><li class="news-item"><span class="news-summary">英国生产力增长快于官方数据，智库称经济或已走出2008年金融危机阴影</span><span class="news-meta"><a href="https://www.theguardian.com/business/2026/aug/24/uk-productivity-growing-faster-official-figures-resolution-foundation" target="_blank">原文</a><span class="pub">Aug-23 08</span></span></li></ul></div><details class="backup-details"><summary class="news-section-title" style="cursor:pointer;border:none;padding:0"><span class="dot"></span>备份原文（点击展开）</summary><div class="backup-section" style="margin-top:12px"><div class="backup-group"><div class="backup-group-title">🇬🇧 BBC Business</div><div class="backup-item"><div class="backup-text">美国财长警告伊朗将面临史上最严重金融制裁，切断所有经济联系，任何与伊合作国家面临制裁风险</div><div class="backup-meta"><a href="https://www.bbc.co.uk/news/articles/c0qxew81y83o?at_medium=RSS&at_campaign=rss" target="_blank">原文</a>&nbsp;Aug-24 08</div></div><div class="backup-item"><div class="backup-text">英国毕业生职位空缺一年减少近50%，创2016年以来新低</div><div class="backup-meta"><a href="https://www.bbc.co.uk/news/articles/crerd8l3pw5o?at_medium=RSS&at_campaign=rss" target="_blank">原文</a>&nbsp;Aug-24 08</div></div><div class="backup-item"><div class="backup-text">快时尚巨头Shein计划以270亿美元估值在港上市，9月1日开始交易</div><div class="backup-meta"><a href="https://www.bbc.co.uk/news/articles/cdeweewjdxno?at_medium=RSS&at_campaign=rss" target="_blank">原文</a>&nbsp;Aug-24 08</div></div><div class="backup-item"><div class="backup-text">英国酒吧和酒店或将进行商业税率改革</div><div class="backup-meta"><a href="https://www.bbc.co.uk/news/articles/c8xnxy89gv7o?at_medium=RSS&at_campaign=rss" target="_blank">原文</a>&nbsp;Aug-24 08</div></div><div class="backup-item"><div class="backup-text">罗汉普顿大学提供2000英镑奖学金，鼓励学生在校期间参与电竞活动</div><div class="backup-meta"><a href="https://www.bbc.co.uk/news/articles/cz647wlvg1do?at_medium=RSS&at_campaign=rss" target="_blank">原文</a>&nbsp;Aug-23 08</div></div><div class="backup-item"><div class="backup-text">调查显示口音偏见仍是英国社会普遍问题</div><div class="backup-meta"><a href="https://www.bbc.co.uk/news/articles/c05q318501yo?at_medium=RSS&at_campaign=rss" target="_blank">原文</a>&nbsp;Aug-23 08</div></div></div><div class="backup-group"><div class="backup-group-title">💹 Yahoo Finance</div><div class="backup-item"><div class="backup-text">黄金、白银价格从暴跌中反弹，但投资者仍持谨慎态度</div><div class="backup-meta"><a href="https://finance.yahoo.com/markets/commodities/articles/gold-silver-rally-off-ugly-013700131.html" target="_blank">原文</a>&nbsp;08-24 01:37</div></div><div class="backup-item"><div class="backup-text">洲际酒店集团利用AI搜索功能提升品牌曝光度和客户覆盖范围</div><div class="backup-meta"><a href="https://finance.yahoo.com/markets/stocks/articles/intercontinental-hotels-group-ihg-ai-112621891.html" target="_blank">原文</a>&nbsp;08-24 11:26</div></div><div class="backup-item"><div class="backup-text">分析W.W. Grainger在新竞争环境下的战略布局</div><div class="backup-meta"><a href="https://finance.yahoo.com/markets/stocks/articles/navigating-w-w-grainger-gww-112512831.html" target="_blank">原文</a>&nbsp;08-24 11:25</div></div><div class="backup-item"><div class="backup-text">Cintas Corp.深入整合运营AI技术</div><div class="backup-meta"><a href="https://finance.yahoo.com/markets/stocks/articles/inside-cintas-corp-ctas-operational-112324643.html" target="_blank">原文</a>&nbsp;08-24 11:23</div></div><div class="backup-item"><div class="backup-text">SAP SE通过Joule和数据云实现AI商业化</div><div class="backup-meta"><a href="https://finance.yahoo.com/technology/ai/articles/sap-se-sap-monetizing-ai-112052918.html" target="_blank">原文</a>&nbsp;08-24 11:20</div></div><div class="backup-item"><div class="backup-text">菜单板优化如何推动投资回报率增长</div><div class="backup-meta"><a href="https://finance.yahoo.com/small-business/articles/menuboard-optimization-drive-roi-112633525.html" target="_blank">原文</a>&nbsp;08-24 11:26</div></div></div><div class="backup-group"><div class="backup-group-title">📈 MarketWatch</div><div class="backup-item"><div class="backup-text">研究发现Medicare Advantage计划对慢性病患者的护理效果并不优于传统Medicare</div><div class="backup-meta"><a href="https://www.marketwatch.com/story/think-medicare-advantage-provides-better-care-for-chronic-conditions-a-new-study-suggests-otherwise-276c7ffd?mod=mw_rss_topstories" target="_blank">原文</a>&nbsp;Aug-24 08</div></div><div class="backup-item"><div class="backup-text">失业后失去医疗保险的朋友如何找到负担得起的保险？</div><div class="backup-meta"><a href="https://www.marketwatch.com/story/shes-desperate-my-friend-was-laid-off-and-lost-her-health-insurance-how-can-she-find-affordable-coverage-3b17b553?mod=mw_rss_topstories" target="_blank">原文</a>&nbsp;Aug-24 08</div></div><div class="backup-item"><div class="backup-text">英伟达财报和杰克逊霍尔会议前夕，市场面临关键一周，两种交易策略可供参考</div><div class="backup-meta"><a href="https://www.marketwatch.com/story/here-are-two-trades-to-make-ahead-of-a-critical-week-for-markets-as-nvidia-results-and-jackson-hole-loom-8ac3653c?mod=mw_rss_topstories" target="_blank">原文</a>&nbsp;Aug-24 08</div></div><div class="backup-item"><div class="backup-text">快时尚巨头Shein计划9月1日在香港上市，IPO前需了解的5件事</div><div class="backup-meta"><a href="https://www.marketwatch.com/story/5-things-to-know-about-the-chinese-e-commerce-juggernaut-shein-ahead-of-its-ipo-ee73d6b1?mod=mw_rss_topstories" target="_blank">原文</a>&nbsp;Aug-24 08</div></div><div class="backup-item"><div class="backup-text">74岁单身富豪坐拥1000万美元资产，寻求理财建议</div><div class="backup-meta"><a href="https://www.marketwatch.com/story/my-main-goal-is-to-help-people-im-single-74-with-10-million-burning-a-hole-in-my-pocket-what-should-i-do-0e6112e1?mod=mw_rss_topstories" target="_blank">原文</a>&nbsp;Aug-24 08</div></div><div class="backup-item"><div class="backup-text">摩根士丹利：二战后市场格局转变，债券收益率或将继续上升，建议投资优质大盘股和AI技术采用者</div><div class="backup-meta"><a href="https://www.marketwatch.com/story/the-post-world-war-ii-market-shift-is-here-and-bond-yields-could-have-higher-to-go-says-morgan-stanley-9381532c?mod=mw_rss_topstories" target="_blank">原文</a>&nbsp;Aug-24 08</div></div></div><div class="backup-group"><div class="backup-group-title">🏛️ The Guardian</div><div class="backup-item"><div class="backup-text">伊朗里亚尔跌至历史新低，美国财长警告“经济D日”</div><div class="backup-meta"><a href="https://www.theguardian.com/business/live/2026/aug/24/canadian-dollar-dips-us-canada-talks-collapse-trade-war-oil-prices-fall-us-sanctions-on-iran-live-updates" target="_blank">原文</a>&nbsp;Aug-24 08</div></div><div class="backup-item"><div class="backup-text">泰晤士水务公司债权人被指用新董事会计划“粉饰太平”</div><div class="backup-meta"><a href="https://www.theguardian.com/business/2026/aug/24/thames-water-investors-board-nationalisation-rescue-deal" target="_blank">原文</a>&nbsp;Aug-24 08</div></div><div class="backup-item"><div class="backup-text">英国生产力增长快于官方数据，智库称经济或已走出2008年金融危机阴影</div><div class="backup-meta"><a href="https://www.theguardian.com/business/2026/aug/24/uk-productivity-growing-faster-official-figures-resolution-foundation" target="_blank">原文</a>&nbsp;Aug-23 08</div></div><div class="backup-item"><div class="backup-text">快时尚巨头Shein以270亿美元估值在香港IPO，中国零售商第一季度亏损9900万美元，面临环境问题审查</div><div class="backup-meta"><a href="https://www.theguardian.com/business/2026/aug/24/fashion-giant-shein-27bn-valuation-hong-kong-market-debut" target="_blank">原文</a>&nbsp;Aug-24 08</div></div><div class="backup-item"><div class="backup-text">英国毕业生职位空缺降至十年最低，7月仅8383个职位</div><div class="backup-meta"><a href="https://www.theguardian.com/business/2026/aug/24/uk-graduate-job-vacancies-plunge-adzuna" target="_blank">原文</a>&nbsp;Aug-24 08</div></div><div class="backup-item"><div class="backup-text">政府承诺在下次评估前使酒吧和酒店的商业税率估值更加公平</div><div class="backup-meta"><a href="https://www.theguardian.com/business/2026/aug/24/government-vows-to-make-business-rate-valuations-for-pubs-and-hotels-fairer" target="_blank">原文</a>&nbsp;Aug-23 08</div></div></div><div class="backup-group"><div class="backup-group-title">📊 The Economist</div><div class="backup-item"><div class="backup-text">斯科特·贝森特会成为特朗普想要的联储主席吗？</div><div class="backup-meta"><a href="https://www.economist.com/finance-and-economics/2026/08/23/is-scott-bessent-the-fed-chair-donald-trump-always-wanted" target="_blank">原文</a>&nbsp;Aug-23 08</div></div><div class="backup-item"><div class="backup-text">特朗普关税的成本追踪</div><div class="backup-meta"><a href="https://www.economist.com/interactive/trump-tariff-costs-tracker" target="_blank">原文</a>&nbsp;Aug-21 08</div></div><div class="backup-item"><div class="backup-text">幻影收费站的高昂代价</div><div class="backup-meta"><a href="https://www.economist.com/finance-and-economics/2026/08/20/the-high-cost-of-phantom-tollbooths" target="_blank">原文</a>&nbsp;Aug-20 08</div></div><div class="backup-item"><div class="backup-text">无论以何种标准衡量，中国的就业市场都很疲软</div><div class="backup-meta"><a href="https://www.economist.com/finance-and-economics/2026/08/20/however-you-measure-it-chinas-job-market-is-weak" target="_blank">原文</a>&nbsp;Aug-20 08</div></div><div class="backup-item"><div class="backup-text">债券市场为何让富裕国家的政客们感到不安</div><div class="backup-meta"><a href="https://www.economist.com/finance-and-economics/2026/08/19/why-bond-markets-are-unnerving-rich-world-politicians" target="_blank">原文</a>&nbsp;Aug-19 08</div></div><div class="backup-item"><div class="backup-text">股票指数不再反映股市现实</div><div class="backup-meta"><a href="https://www.economist.com/finance-and-economics/2026/08/18/stock-indices-no-longer-reflect-equity-reality" target="_blank">原文</a>&nbsp;Aug-18 08</div></div></div><div class="backup-group"><div class="backup-group-title">🌐 ZeroHedge</div><div class="backup-item"><div class="backup-text">内政部批准科罗拉多河三个州的水资源削减计划</div><div class="backup-meta"><a href="https://www.zerohedge.com/political/interior-department-approves-colorado-river-water-reductions-3-states" target="_blank">原文</a>&nbsp;Aug-24 08</div></div><div class="backup-item"><div class="backup-text">研究发现152个Polymarket钱包可能利用军事机密获利800万美元</div><div class="backup-meta"><a href="https://www.zerohedge.com/markets/study-finds-152-polymarket-wallets-likely-exploited-military-secrets-8-million-gains" target="_blank">原文</a>&nbsp;Aug-24 08</div></div><div class="backup-item"><div class="backup-text">欧洲因最糟糕的原因躲过莱茵河危机</div><div class="backup-meta"><a href="https://www.zerohedge.com/geopolitical/europe-dodges-rhine-crisis-worst-possible-reason" target="_blank">原文</a>&nbsp;Aug-24 08</div></div><div class="backup-item"><div class="backup-text">“政治变革的种子”：野村证券认为欧洲正转向右翼，市场对此表示接受</div><div class="backup-meta"><a href="https://www.zerohedge.com/political/seeds-political-change-nomura-sees-europe-lurching-right-and-markets-are-fine-it" target="_blank">原文</a>&nbsp;Aug-24 08</div></div><div class="backup-item"><div class="backup-text">清洁能源支出预计2026年将达到创纪录的1800亿美元</div><div class="backup-meta"><a href="https://www.zerohedge.com/energy/clean-energy-spending-tracking-toward-record-180-billion-2026" target="_blank">原文</a>&nbsp;Aug-24 08</div></div><div class="backup-item"><div class="backup-text">Anti-Social Media</div><div class="backup-meta"><a href="https://www.zerohedge.com/technology/anti-social-media" target="_blank">原文</a>&nbsp;Aug-24 08</div></div></div><div class="backup-group"><div class="backup-group-title">💱 FXStreet</div><div class="backup-item"><div class="backup-text">黄金：突破维持上行势头——法国兴业银行</div><div class="backup-meta"><a href="https://www.fxstreet.com/news/gold-breakout-sustains-upward-momentum-societe-generale-202608241126" target="_blank">原文</a>&nbsp;Aug-24 08</div></div><div class="backup-item"><div class="backup-text">欧元：头寸支持对美元逐步走强——ING</div><div class="backup-meta"><a href="https://www.fxstreet.com/news/euro-positioning-supports-gradual-gains-against-us-dollar-ing-202608241117" target="_blank">原文</a>&nbsp;Aug-24 08</div></div><div class="backup-item"><div class="backup-text">黄金延续涨势，市场等待美国PCE数据及沃什在杰克逊霍尔的讲话</div><div class="backup-meta"><a href="https://www.fxstreet.com/news/gold-extends-rally-as-markets-await-us-pce-and-warshs-jackson-hole-speech-202608241107" target="_blank">原文</a>&nbsp;Aug-24 08</div></div><div class="backup-item"><div class="backup-text">新西兰元：零售销售下滑但加息预期仍在——BBH</div><div class="backup-meta"><a href="https://www.fxstreet.com/news/new-zealand-dollar-retail-slump-yet-hikes-priced-bbh-202608241106" target="_blank">原文</a>&nbsp;Aug-24 08</div></div><div class="backup-item"><div class="backup-text">澳元/美元价格预测：澳元从12周高点回落，但多头仍占主导</div><div class="backup-meta"><a href="https://www.fxstreet.com/news/aud-usd-price-forecast-aussie-eases-from-12-week-highs-with-bulls-still-in-command-202608241049" target="_blank">原文</a>&nbsp;Aug-24 08</div></div><div class="backup-item"><div class="backup-text">黄金价格预测：XAU/USD继续走高，但超买RSI警示多头</div><div class="backup-meta"><a href="https://www.fxstreet.com/news/gold-price-forecast-xau-usd-pushes-higher-but-overbought-rsi-warns-bulls-202608241026" target="_blank">原文</a>&nbsp;Aug-24 08</div></div></div></div></details>
 
 <div class="footer">
   数据来源：BBC Business · Yahoo Finance · MarketWatch · The Guardian · The Economist · ZeroHedge · FXStreet &nbsp;|&nbsp;
-  行情来源：新浪财经（A股/大宗）· Binance（虚拟货币）&nbsp;|&nbsp; 生成时间 2026-08-24T19:38
+  行情来源：新浪财经 · Binance &nbsp;|&nbsp; 制作：金融日报系统
 </div>
+
 </div>
 </body>
 </html>
