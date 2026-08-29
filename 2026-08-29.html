@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>全球金融日报 - 2026-08-29</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+/* ── 变量 ─────────────────────────────────── */
+:root{
+  --bg:#f7f5f0;
+  --paper:#fdfcf9;
+  --ink:#1a1814;
+  --ink-light:#6b6560;
+  --ink-lighter:#a09a94;
+  --accent:#b5362c;
+  --accent-warm:#d4622a;
+  --border:#e5e2dc;
+  --shadow:0 2px 16px rgba(26,24,20,0.06);
+  --radius:4px;
+  --serif:'Noto Serif SC','Georgia',serif;
+  --sans:'Noto Sans SC','PingFang SC',sans-serif;
+}
+
+/* ── 基础 ─────────────────────────────────── */
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  background:var(--bg);
+  color:var(--ink);
+  font-family:var(--sans);
+  font-size:17px;
+  line-height:1.85;
+  -webkit-font-smoothing:antialiased;
+}
+.container{
+  max-width:1200px;
+  margin:0 auto;
+  padding:48px 48px;
+}
+
+/* ── 报头 ─────────────────────────────────── */
+ masthead{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  padding-bottom:24px;
+  border-bottom:3px solid var(--ink);
+  margin-bottom:10px;
+}
+masthead .title{
+  font-family:var(--serif);
+  font-size:56px;
+  font-weight:700;
+  color:var(--ink);
+  letter-spacing:-2px;
+  line-height:1;
+}
+masthead .date-box{
+  text-align:right;
+  flex-shrink:0;
+}
+masthead .date-label{
+  font-size:12px;
+  font-weight:500;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  color:var(--ink-lighter);
+  margin-bottom:4px;
+}
+masthead .date-value{
+  font-family:var(--serif);
+  font-size:30px;
+  font-weight:700;
+  color:var(--ink);
+}
+masthead .sources{
+  font-size:13px;
+  color:var(--ink-lighter);
+  padding-top:8px;
+  border-top:1px solid var(--border);
+  margin-top:14px;
+}
+masthead .sources strong{
+  font-weight:700;
+  color:var(--ink-light);
+  margin-right:6px;
+  letter-spacing:1px;
+}
+
+.byline{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  padding:12px 0 28px 0;
+}
+.byline .tag{
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:var(--paper);
+  background:var(--accent);
+  padding:3px 10px;
+  border-radius:2px;
+}
+.byline .time{
+  font-size:12px;
+  color:var(--ink-lighter);
+}
+
+/* ── 通用白纸卡片 ──────────────────────────── */
+.card{
+  background:var(--paper);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:28px 30px;
+  margin-bottom:20px;
+  box-shadow:var(--shadow);
+}
+
+/* ── 市场行情 ─────────────────────────────── */
+.section-label{
+  font-size:18px;
+  font-weight:700;
+  letter-spacing:1px;
+  color:var(--ink);
+  margin-bottom:20px;
+  padding-bottom:12px;
+  border-bottom:2px solid var(--ink);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.section-label .link{
+  font-size:11px;
+  font-weight:400;
+  color:var(--accent);
+  text-decoration:none;
+  letter-spacing:1px;
+}
+.section-label .link:hover{text-decoration:underline}
+
+.market-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr;
+  gap:16px;
+}
+.mkt-group{margin-bottom:4px}
+.mkt-group-title{
+  font-size:22px;
+  font-weight:700;
+  letter-spacing:0;
+  color:var(--ink);
+  margin-bottom:12px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.mkt-group-title .link{
+  font-size:12px;
+  font-weight:400;
+  color:var(--accent);
+  text-decoration:none;
+  letter-spacing:0;
+}
+.mkt-group-title .link:hover{text-decoration:underline}
+.mkt-item{
+  padding:14px 0;
+  border-bottom:1px solid var(--border);
+}
+.mkt-item:last-child{border-bottom:none}
+.mkt-name{
+  font-size:14px;
+  color:var(--ink-lighter);
+  margin-bottom:4px;
+}
+.mkt-price{
+  font-family:var(--serif);
+  font-size:24px;
+  font-weight:600;
+  color:var(--ink);
+  letter-spacing:-0.5px;
+}
+.mkt-pct{
+  font-size:15px;
+  font-weight:500;
+  margin-left:10px;
+}
+.up{color:#c0392b}
+.down{color:#2e7d32}
+.flat{color:var(--ink-lighter)}
+
+/* ── 今日视点（编辑器风格）────────────────── */
+.analysis-card{
+  border-top:3px solid var(--accent);
+}
+.analysis-title{
+  font-family:var(--serif);
+  font-size:30px;
+  font-weight:700;
+  color:var(--ink);
+  margin-bottom:24px;
+  line-height:1.3;
+}
+
+.analysis-body{color:var(--ink)}
+.analysis-section{margin-bottom:24px}
+.analysis-section:last-child{margin-bottom:0}
+.analysis-section-title{
+  font-size:15px;
+  font-weight:700;
+  letter-spacing:0;
+  color:var(--accent);
+  margin-bottom:10px;
+  border-bottom:1px solid var(--border);
+  padding-bottom:8px;
+}
+.analysis-body p{
+  font-size:18px;
+  line-height:1.9;
+  color:#3a3632;
+}
+
+.sectors-grid{display:flex;flex-direction:column;gap:8px}
+.sector-card{
+  display:grid;
+  grid-template-columns:1fr auto 2fr;
+  align-items:center;
+  gap:0;
+  background:#faf9f7;
+  border:1px solid var(--border);
+  border-radius:4px;
+  padding:14px 18px;
+}
+.sector-name{font-weight:700;font-size:17px;color:var(--ink)}
+.sector-sig{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:44px;
+  height:36px;
+  border-radius:6px;
+  font-size:20px;
+  font-weight:700;
+  line-height:1;
+  flex-shrink:0;
+  margin:0 20px;
+}
+.sector-sig.up{background:#fce8e8;color:#c0392b}
+.sector-sig.down{background:#e8f7ee;color:#2e7d32}
+.sector-sig.flat{background:#f0f0f0;color:var(--ink-lighter)}
+.sector-reason{font-size:15px;color:var(--ink-light);line-height:1.6}
+
+.trading-text{color:#2e7d32;font-weight:500;font-size:16px}
+.risk-text{color:#b85c1a;font-size:15px}
+
+/* ── 新闻分类 ─────────────────────────────── */
+.news-section{margin-bottom:4px}
+.news-section-title{
+  font-size:17px;
+  font-weight:700;
+  letter-spacing:0;
+  color:var(--ink);
+  padding:18px 0 12px 0;
+  border-bottom:2px solid var(--ink);
+  margin-bottom:0;
+  display:flex;
+  align-items:center;
+}
+.news-section-title .dot{
+  display:inline-block;
+  width:10px;
+  height:10px;
+  border-radius:50%;
+  background:var(--ink);
+  margin-right:12px;
+  flex-shrink:0;
+}
+.news-section-title.headline{border-bottom-color:#c0392b;color:#c0392b}
+.news-section-title.headline .dot{background:#c0392b}
+.news-section-title.macro{border-bottom-color:#b85c1a;color:#b85c1a}
+.news-section-title.macro .dot{background:#b85c1a}
+.news-section-title.market{border-bottom-color:#2e7d32;color:#2e7d32}
+.news-section-title.market .dot{background:#2e7d32}
+.news-section-title.company{border-bottom-color:#1565c0;color:#1565c0}
+.news-section-title.company .dot{background:#1565c0}
+
+.news-list{list-style:none;padding:0;margin:0}
+.news-item{
+  padding:16px 0;
+  border-bottom:1px solid var(--border);
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+}
+.news-item:last-child{border-bottom:none}
+.news-summary{font-size:17px;line-height:1.8;color:#2a2622}
+.news-meta{display:flex;align-items:center;gap:14px}
+.news-meta a{font-size:12px;color:var(--accent);text-decoration:none;font-weight:500}
+.news-meta a:hover{text-decoration:underline}
+.news-meta .pub{font-size:12px;color:var(--ink-lighter)}
+
+/* 备份原文 - 原生details样式 */
+.backup-details{
+  margin-top:16px;
+  padding-top:16px;
+  border-top:2px solid var(--border);
+}
+.backup-details summary{
+  list-style:none;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  cursor:pointer;
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:2.5px;
+  text-transform:uppercase;
+  color:var(--ink-lighter);
+  user-select:none;
+}
+.backup-details summary::-webkit-details-marker{display:none}
+.backup-details summary::before{
+  content:'';
+  display:inline-block;
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  background:var(--ink);
+  flex-shrink:0;
+}
+.backup-details[open] summary::before{background:var(--accent)}
+.backup-section{padding-top:14px}
+.backup-group{margin-bottom:20px}
+.backup-group-title{
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:var(--ink-lighter);
+  padding:10px 0 8px 0;
+  border-bottom:1px solid var(--border);
+}
+.backup-item{
+  padding:10px 0;
+  border-bottom:1px solid var(--border);
+  display:flex;
+  flex-direction:column;
+  gap:4px;
+}
+.backup-item:last-child{border-bottom:none}
+.backup-text{font-size:14px;line-height:1.7;color:#3a3632}
+.backup-meta{font-size:11px;color:var(--ink-lighter)}
+
+/* ── 页脚 ─────────────────────────────────── */
+.footer{
+  text-align:center;
+  padding:40px 0 20px 0;
+  font-size:12px;
+  color:var(--ink-lighter);
+  border-top:1px solid var(--border);
+  margin-top:12px;
+}
+
+/* ── 响应式 ──────────────────────────────── */
+@media(max-width:640px){
+  .container{padding:28px 20px}
+  masthead{flex-direction:column;align-items:flex-start;gap:12px}
+  masthead .title{font-size:32px}
+  .market-grid{grid-template-columns:1fr}
+  .sector-row{grid-template-columns:80px 28px 1fr}
+  .masthead .sources{font-size:11px}
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- 报头 -->
+<masthead>
+  <div>
+    <div class="title">全球金融日报</div>
+    <div class="sources"><strong>信息来源：</strong>BBC · Yahoo Finance · MarketWatch · The Guardian · The Economist · ZeroHedge · FXStreet</div>
+  </div>
+  <div class="date-box">
+    <div class="date-label">刊例日期</div>
+    <div class="date-value">2026-08-29</div>
+  </div>
+</masthead>
+
+<div class="byline">
+  <div class="tag">Daily Brief</div>
+  <div class="time">生成于 2026-08-29T21:05</div>
+</div>
+
+<!-- 市场行情 -->
+<div class="card">
+  <div class="section-label" style="font-size:22px;letter-spacing:2px">市场行情</div>
+  <div class="market-grid">
+    <div class="mkt-group">
+      <div class="mkt-group-title">📈 <a class="link" href="https://finance.sina.com.cn/realstock/company/sh000001/nc.shtml" target="_blank">A股</a></div>
+      <div class="mkt-item"><div class="mkt-name">上证指数</div><div class="mkt-price">3,952.18 <span class="mkt-pct down">-0.11%</span></div></div>
+      <div class="mkt-item"><div class="mkt-name">深证成指</div><div class="mkt-price">13,953.07 <span class="mkt-pct down">-0.68%</span></div></div>
+      <div class="mkt-item"><div class="mkt-name">创业板指</div><div class="mkt-price">3,424.40 <span class="mkt-pct down">-1.41%</span></div></div>
+    </div>
+    <div class="mkt-group">
+      <div class="mkt-group-title">🛢️ <a class="link" href="https://www.kitco.com/charts/livegold.html" target="_blank">大宗商品</a></div>
+      <div class="mkt-item"><div class="mkt-name">黄金(GC)</div><div class="mkt-price">$4,503.37 <span class="mkt-pct down">-0.01%</span></div></div>
+      <div class="mkt-item"><div class="mkt-name">白银(SI)</div><div class="mkt-price">$67.07 <span class="mkt-pct down">-0.02%</span></div></div>
+      <div class="mkt-item"><div class="mkt-name">WTI原油(CL)</div><div class="mkt-price">$83.47 <span class="mkt-pct up">+0.04%</span></div></div>
+    </div>
+    <div class="mkt-group">
+      <div class="mkt-group-title">₿ <a class="link" href="https://www.binance.com/zh-CN/price/bitcoin" target="_blank">加密货币</a></div>
+      <div class="mkt-item"><div class="mkt-name">BTC</div><div class="mkt-price">77,579.00 <span class="mkt-pct down">-2.36%</span></div></div>
+      <div class="mkt-item"><div class="mkt-name">ETH</div><div class="mkt-price">2,434.44 <span class="mkt-pct down">-2.77%</span></div></div>
+      <div class="mkt-item"><div class="mkt-name">BNB</div><div class="mkt-price">688.03 <span class="mkt-pct down">-2.52%</span></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- 今日视点 -->
+<div class="card analysis-card">
+  <div class="analysis-title">全球市场波动与经济挑战并存</div>
+  <div class="analysis-body">
+    <div class="analysis-section">
+      <div class="analysis-section-title">今日概要</div>
+      <p>地缘政治方面，特朗普宣称控制委内瑞拉石油资源引发市场关注｜宏观经济层面，美国就业增长放缓、英国电信升级缓慢以及欧盟天然气储量降至13年低点显示全球经济复苏仍面临挑战｜国际金融市场波动加剧，美元强势、韩元因央行政策走强，而英国面临能源价格波动风险｜产业与公司方面，软件股如微软和Palantir反弹，但机器人制造业因技术瓶颈受挫，传统制造业如工具巨头面临裁员压力｜中国市场方面，A股三大指数全线下跌，创业板跌幅较大，市场情绪偏谨慎。|</p>
+    </div>
+    <div class="analysis-section">
+      <div class="analysis-section-title">政策与宏观</div>
+      <p>当前全球货币政策分化明显，美国面临通胀压力，美联储官员表态需继续加息，而中国则面临财政政策收紧的挑战。各国央行在应对通胀与经济复苏之间寻求平衡。韩国央行提前加息支撑韩元，而菲律宾央行因通胀风险采取紧缩倾向。整体来看，全球货币政策环境趋紧，可能对新兴市场造成压力。</p>
+    </div>
+    <div class="analysis-section">
+      <div class="analysis-section-title">板块机会</div>
+      <div class="sectors-grid"><div class="sector-card"><span class="sector-name">软件</span><span class="sector-sig up">↑</span><span class="sector-reason">微软等巨头反弹，AI领域受关注</span></div><div class="sector-card"><span class="sector-name">机器人</span><span class="sector-sig down">↓</span><span class="sector-reason">技术瓶颈导致披萨机器人失败案例频发</span></div><div class="sector-card"><span class="sector-name">传统制造业</span><span class="sector-sig down">↓</span><span class="sector-reason">工具巨头关闭工厂并裁员</span></div><div class="sector-card"><span class="sector-name">黄金</span><span class="sector-sig up">↑</span><span class="sector-reason">地缘政治风险加剧推升避险需求</span></div><div class="sector-card"><span class="sector-name">原油</span><span class="sector-sig up">↑</span><span class="sector-reason">委内瑞拉石油控制权争议引发供应担忧</span></div></div>
+    </div>
+    <div class="analysis-section">
+      <div class="analysis-section-title">操作建议</div>
+      <p class="trading-text">建议投资者关注黄金和原油等避险资产，同时警惕新兴市场货币波动风险。软件股反弹显示科技板块仍有投资机会，但需警惕市场整体疲软带来的下行压力。操作上宜保持谨慎，关注关键点位支撑力度。</p>
+    </div>
+    <div class="analysis-section">
+      <div class="analysis-section-title">风险提示</div>
+      <p class="risk-text">主要风险包括美国通胀持续高企导致货币政策超预期收紧，以及地缘政治冲突加剧对全球供应链的冲击。此外，英国能源价格波动和欧盟天然气短缺问题可能引发市场恐慌情绪。</p>
+    </div>
+  </div>
+</div>
+
+<!-- 新闻 -->
+<div class="news-section"><div class="news-section-title headline"><span class="dot"></span>🔴 头条</div><ul class="news-list"><li class="news-item"><span class="news-summary">特朗普称美将控制委内瑞拉650亿桶石油，委临时总统称协议将重振经济</span><span class="news-meta"><a href="https://www.bbc.co.uk/news/articles/cx2zlwe7qj1o?at_medium=RSS&at_campaign=rss" target="_blank">原文</a><span class="pub">Aug-29 08</span></span></li><li class="news-item"><span class="news-summary">前美联储官员沃什称若通胀持续，美联储需继续加息</span><span class="news-meta"><a href="https://www.bbc.co.uk/news/articles/cy9zjgv9lgdo?at_medium=RSS&at_campaign=rss" target="_blank">原文</a><span class="pub">Aug-28 08</span></span></li><li class="news-item"><span class="news-summary">法官裁定特朗普政府非法报复AI初创公司Anthropic</span><span class="news-meta"><a href="https://www.bbc.co.uk/news/articles/cm2q7z5mlrmo?at_medium=RSS&at_campaign=rss" target="_blank">原文</a><span class="pub">Aug-28 08</span></span></li><li class="news-item"><span class="news-summary">加拿大人抵制"特朗普的美国"：从科技到威士忌再到航空旅行</span><span class="news-meta"><a href="https://www.theguardian.com/business/2026/aug/29/if-its-made-in-the-us-i-dont-buy-it-canadians-on-boycotting-trumps-america" target="_blank">原文</a><span class="pub">Aug-29 08</span></span></li><li class="news-item"><span class="news-summary">特朗普移民政策的经济代价：劳动力减少，增长放缓</span><span class="news-meta"><a href="https://www.economist.com/finance-and-economics/2026/08/27/the-economic-costs-of-donald-trumps-immigration-crackdown" target="_blank">原文</a><span class="pub">Aug-27 08</span></span></li></ul></div><div class="news-section"><div class="news-section-title macro"><span class="dot"></span>🟠 宏观</div><ul class="news-list"><li class="news-item"><span class="news-summary">菲律宾比索：菲律宾央行因通胀风险采取紧缩倾向——星展银行</span><span class="news-meta"><a href="https://www.fxstreet.com/news/philippine-peso-bsp-tightening-bias-on-inflation-risks-dbs-202608282156" target="_blank">原文</a><span class="pub">Aug-28 08</span></span></li></ul></div><div class="news-section"><div class="news-section-title market"><span class="dot"></span>🟡 市场</div><ul class="news-list"><li class="news-item"><span class="news-summary">7只股票被分析师看好，亚马逊守住关键点位</span><span class="news-meta"><a href="https://www.investors.com/research/best-stocks-seven-magnificent-stocks-earnings-growth/?src=A00220&yptr=yahoo" target="_blank">原文</a><span class="pub">08-29 12:00</span></span></li><li class="news-item"><span class="news-summary">道指期货：微软等巨头掩盖市场疲软，投资者需谨慎应对</span><span class="news-meta"><a href="https://www.investors.com/market-trend/stock-market-today/dow-jones-futures-microsoft-titans-mask-market-weakness/?src=A00220&yptr=yahoo" target="_blank">原文</a><span class="pub">08-29 11:56</span></span></li><li class="news-item"><span class="news-summary">微软、Palantir等软件股反弹，值得关注</span><span class="news-meta"><a href="https://www.investors.com/news/microsoft-palantir-stocks-near-buy-points-software/?src=A00220&yptr=yahoo" target="_blank">原文</a><span class="pub">08-29 11:55</span></span></li><li class="news-item"><span class="news-summary">Dunkin'时隔12年重返主要市场</span><span class="news-meta"><a href="https://finance.yahoo.com/small-business/articles/dunkin-comes-back-major-market-161700314.html" target="_blank">原文</a><span class="pub">08-28 16:17</span></span></li><li class="news-item"><span class="news-summary">企业盈利快速增长不可持续</span><span class="news-meta"><a href="https://www.marketwatch.com/story/corporate-earnings-have-been-growing-at-a-blistering-pace-heres-why-thats-not-likely-to-last-28810eac?mod=mw_rss_topstories" target="_blank">原文</a><span class="pub">Aug-29 08</span></span></li><li class="news-item"><span class="news-summary">斯科特·贝森特挑战债券市场，给美联储制造麻烦</span><span class="news-meta"><a href="https://www.economist.com/finance-and-economics/2026/08/27/scott-bessent-takes-on-the-bond-market" target="_blank">原文</a><span class="pub">Aug-27 08</span></span></li></ul></div><div class="news-section"><div class="news-section-title company"><span class="dot"></span>🔵 公司</div><ul class="news-list"><li class="news-item"><span class="news-summary">库克并非"产品人"，却通过重塑苹果供应链取得成功</span><span class="news-meta"><a href="https://www.marketwatch.com/story/tim-cook-wasnt-a-product-guy-so-he-re-engineered-apple-instead-03ca53f4?mod=mw_rss_topstories" target="_blank">原文</a><span class="pub">Aug-29 08</span></span></li><li class="news-item"><span class="news-summary">如何应对爱撒谎且不工作的员工：传达明确信息</span><span class="news-meta"><a href="https://www.marketwatch.com/story/im-managing-a-pathological-liar-who-never-does-her-work-how-do-i-deal-with-her-e3c06081?mod=mw_rss_topstories" target="_blank">原文</a><span class="pub">Aug-29 08</span></span></li><li class="news-item"><span class="news-summary">英国高管警告：电信升级缓慢将使英国在AI竞赛中落后</span><span class="news-meta"><a href="https://www.theguardian.com/technology/2026/aug/29/uk-risk-falling-behind-ai-telecoms-upgrades" target="_blank">原文</a><span class="pub">Aug-29 08</span></span></li><li class="news-item"><span class="news-summary">英国家庭转用固定能源合约，每年可节省高达173英镑</span><span class="news-meta"><a href="https://www.theguardian.com/money/2026/aug/29/households-could-save-up-to-173-a-year-by-switching-to-fixed-energy-deal" target="_blank">原文</a><span class="pub">Aug-29 08</span></span></li></ul></div><details class="backup-details"><summary class="news-section-title" style="cursor:pointer;border:none;padding:0"><span class="dot"></span>备份原文（点击展开）</summary><div class="backup-section" style="margin-top:12px"><div class="backup-group"><div class="backup-group-title">🇬🇧 BBC Business</div><div class="backup-item"><div class="backup-text">特朗普称美将控制委内瑞拉650亿桶石油，委临时总统称协议将重振经济</div><div class="backup-meta"><a href="https://www.bbc.co.uk/news/articles/cx2zlwe7qj1o?at_medium=RSS&at_campaign=rss" target="_blank">原文</a>&nbsp;Aug-29 08</div></div><div class="backup-item"><div class="backup-text">美联航因剧烈颠簸致乘客死亡遭起诉，死者妻子称航班骤降6000英尺</div><div class="backup-meta"><a href="https://www.bbc.co.uk/news/articles/cqlwrpey1epo?at_medium=RSS&at_campaign=rss" target="_blank">原文</a>&nbsp;Aug-28 08</div></div><div class="backup-item"><div class="backup-text">前美联储官员沃什称若通胀持续，美联储需继续加息</div><div class="backup-meta"><a href="https://www.bbc.co.uk/news/articles/cy9zjgv9lgdo?at_medium=RSS&at_campaign=rss" target="_blank">原文</a>&nbsp;Aug-28 08</div></div><div class="backup-item"><div class="backup-text">BBC探讨年轻人冲动消费问题，提供应对深夜购物瘾的方法</div><div class="backup-meta"><a href="https://www.bbc.co.uk/news/articles/czxqk1gwxn7o?at_medium=RSS&at_campaign=rss" target="_blank">原文</a>&nbsp;Aug-27 08</div></div><div class="backup-item"><div class="backup-text">法官裁定特朗普政府非法报复AI初创公司Anthropic</div><div class="backup-meta"><a href="https://www.bbc.co.uk/news/articles/cm2q7z5mlrmo?at_medium=RSS&at_campaign=rss" target="_blank">原文</a>&nbsp;Aug-28 08</div></div><div class="backup-item"><div class="backup-text">机器人披萨制作失败案例频发，削弱其取代人工的预期</div><div class="backup-meta"><a href="https://www.bbc.co.uk/news/articles/czxq0wgkkdjo?at_medium=RSS&at_campaign=rss" target="_blank">原文</a>&nbsp;Aug-27 08</div></div></div><div class="backup-group"><div class="backup-group-title">💹 Yahoo Finance</div><div class="backup-item"><div class="backup-text">183年历史的工具巨头关闭工厂，裁员数十人</div><div class="backup-meta"><a href="https://finance.yahoo.com/markets/stocks/articles/183-old-giant-tool-company-160300042.html" target="_blank">原文</a>&nbsp;08-28 16:03</div></div><div class="backup-item"><div class="backup-text">AARP警告美国人勿轻易转移401(k)账户，否则可能损失25%-35%</div><div class="backup-meta"><a href="https://finance.yahoo.com/markets/articles/could-lose-25-35-aarp-121500853.html" target="_blank">原文</a>&nbsp;08-29 12:15</div></div><div class="backup-item"><div class="backup-text">7只股票被分析师看好，亚马逊守住关键点位</div><div class="backup-meta"><a href="https://www.investors.com/research/best-stocks-seven-magnificent-stocks-earnings-growth/?src=A00220&yptr=yahoo" target="_blank">原文</a>&nbsp;08-29 12:00</div></div><div class="backup-item"><div class="backup-text">道指期货：微软等巨头掩盖市场疲软，投资者需谨慎应对</div><div class="backup-meta"><a href="https://www.investors.com/market-trend/stock-market-today/dow-jones-futures-microsoft-titans-mask-market-weakness/?src=A00220&yptr=yahoo" target="_blank">原文</a>&nbsp;08-29 11:56</div></div><div class="backup-item"><div class="backup-text">微软、Palantir等软件股反弹，值得关注</div><div class="backup-meta"><a href="https://www.investors.com/news/microsoft-palantir-stocks-near-buy-points-software/?src=A00220&yptr=yahoo" target="_blank">原文</a>&nbsp;08-29 11:55</div></div><div class="backup-item"><div class="backup-text">Dunkin'时隔12年重返主要市场</div><div class="backup-meta"><a href="https://finance.yahoo.com/small-business/articles/dunkin-comes-back-major-market-161700314.html" target="_blank">原文</a>&nbsp;08-28 16:17</div></div></div><div class="backup-group"><div class="backup-group-title">📈 MarketWatch</div><div class="backup-item"><div class="backup-text">将资金转入401(k)账户可作为有效的理财工具</div><div class="backup-meta"><a href="https://www.marketwatch.com/story/why-would-someone-lock-up-money-by-rolling-it-into-a-401-k-2c742e90?mod=mw_rss_topstories" target="_blank">原文</a>&nbsp;Aug-29 08</div></div><div class="backup-item"><div class="backup-text">美国5个适合退休的实惠城市，无需出国也能找到理想居所</div><div class="backup-meta"><a href="https://www.marketwatch.com/story/5-cheap-u-s-cities-to-retire-in-if-you-can-deal-with-this-one-thing-fbda5d1a?mod=mw_rss_topstories" target="_blank">原文</a>&nbsp;Aug-29 08</div></div><div class="backup-item"><div class="backup-text">库克并非"产品人"，却通过重塑苹果供应链取得成功</div><div class="backup-meta"><a href="https://www.marketwatch.com/story/tim-cook-wasnt-a-product-guy-so-he-re-engineered-apple-instead-03ca53f4?mod=mw_rss_topstories" target="_blank">原文</a>&nbsp;Aug-29 08</div></div><div class="backup-item"><div class="backup-text">美国就业增长放缓，短期内可能不会提速</div><div class="backup-meta"><a href="https://www.marketwatch.com/story/where-are-all-the-new-jobs-hiring-slows-again-and-it-probably-wont-speed-up-soon-66920f1d?mod=mw_rss_topstories" target="_blank">原文</a>&nbsp;Aug-29 08</div></div><div class="backup-item"><div class="backup-text">如何应对爱撒谎且不工作的员工：传达明确信息</div><div class="backup-meta"><a href="https://www.marketwatch.com/story/im-managing-a-pathological-liar-who-never-does-her-work-how-do-i-deal-with-her-e3c06081?mod=mw_rss_topstories" target="_blank">原文</a>&nbsp;Aug-29 08</div></div><div class="backup-item"><div class="backup-text">企业盈利快速增长不可持续</div><div class="backup-meta"><a href="https://www.marketwatch.com/story/corporate-earnings-have-been-growing-at-a-blistering-pace-heres-why-thats-not-likely-to-last-28810eac?mod=mw_rss_topstories" target="_blank">原文</a>&nbsp;Aug-29 08</div></div></div><div class="backup-group"><div class="backup-group-title">🏛️ The Guardian</div><div class="backup-item"><div class="backup-text">英国高管警告：电信升级缓慢将使英国在AI竞赛中落后</div><div class="backup-meta"><a href="https://www.theguardian.com/technology/2026/aug/29/uk-risk-falling-behind-ai-telecoms-upgrades" target="_blank">原文</a>&nbsp;Aug-29 08</div></div><div class="backup-item"><div class="backup-text">欧盟天然气储量降至13年最低，英国作为主要消费国面临价格波动风险</div><div class="backup-meta"><a href="https://www.theguardian.com/business/2026/aug/29/european-gas-stores-lowest-13-years-eu-price" target="_blank">原文</a>&nbsp;Aug-29 08</div></div><div class="backup-item"><div class="backup-text">英国家庭转用固定能源合约，每年可节省高达173英镑</div><div class="backup-meta"><a href="https://www.theguardian.com/money/2026/aug/29/households-could-save-up-to-173-a-year-by-switching-to-fixed-energy-deal" target="_blank">原文</a>&nbsp;Aug-29 08</div></div><div class="backup-item"><div class="backup-text">加拿大人抵制"特朗普的美国"：从科技到威士忌再到航空旅行</div><div class="backup-meta"><a href="https://www.theguardian.com/business/2026/aug/29/if-its-made-in-the-us-i-dont-buy-it-canadians-on-boycotting-trumps-america" target="_blank">原文</a>&nbsp;Aug-29 08</div></div><div class="backup-item"><div class="backup-text">英国读者家智斗银行诈骗犯：主动提供账户信息并记录对话</div><div class="backup-meta"><a href="https://www.theguardian.com/money/2026/aug/29/banks-scam-heres-my-pin-number-turning-the-tables-on-scammers" target="_blank">原文</a>&nbsp;Aug-29 08</div></div><div class="backup-item"><div class="backup-text">财政部长斯科特·贝森特难以收拾特朗普留下的烂摊子</div><div class="backup-meta"><a href="https://www.theguardian.com/business/2026/aug/29/scott-bessant-us-economy-donald-trump" target="_blank">原文</a>&nbsp;Aug-29 08</div></div></div><div class="backup-group"><div class="backup-group-title">📊 The Economist</div><div class="backup-item"><div class="backup-text">凯文·沃什尝试成为正常的央行行长，市场反应积极</div><div class="backup-meta"><a href="https://www.economist.com/finance-and-economics/2026/08/28/kevin-warsh-tries-being-a-normal-central-banker" target="_blank">原文</a>&nbsp;Aug-28 08</div></div><div class="backup-item"><div class="backup-text">特朗普移民政策的经济代价：劳动力减少，增长放缓</div><div class="backup-meta"><a href="https://www.economist.com/finance-and-economics/2026/08/27/the-economic-costs-of-donald-trumps-immigration-crackdown" target="_blank">原文</a>&nbsp;Aug-27 08</div></div><div class="backup-item"><div class="backup-text">斯科特·贝森特挑战债券市场，给美联储制造麻烦</div><div class="backup-meta"><a href="https://www.economist.com/finance-and-economics/2026/08/27/scott-bessent-takes-on-the-bond-market" target="_blank">原文</a>&nbsp;Aug-27 08</div></div><div class="backup-item"><div class="backup-text">中国应放松财政政策，实际却在收紧：微观有利，宏观不利</div><div class="backup-meta"><a href="https://www.economist.com/finance-and-economics/2026/08/27/china-should-be-loosening-budgetary-policy-its-doing-the-opposite" target="_blank">原文</a>&nbsp;Aug-27 08</div></div><div class="backup-item"><div class="backup-text">印度央行通过补贴侨民稳定卢比</div><div class="backup-meta"><a href="https://www.economist.com/finance-and-economics/2026/08/27/how-indias-central-bank-subsidised-the-diaspora" target="_blank">原文</a>&nbsp;Aug-27 08</div></div><div class="backup-item"><div class="backup-text">慈善捐赠税收优惠应取消：这是低效的做好事方式</div><div class="backup-meta"><a href="https://www.economist.com/finance-and-economics/2026/08/27/tax-breaks-for-charity-donations-should-be-scrapped" target="_blank">原文</a>&nbsp;Aug-27 08</div></div></div><div class="backup-group"><div class="backup-group-title">🌐 ZeroHedge</div><div class="backup-item"><div class="backup-text">自伊朗战争以来汽油价格上涨了多少？</div><div class="backup-meta"><a href="https://www.zerohedge.com/personal-finance/how-much-gas-prices-have-risen-iran-war" target="_blank">原文</a>&nbsp;Aug-29 08</div></div><div class="backup-item"><div class="backup-text">美国支持的叙利亚民主力量领导人加入叙利亚政权担任总统顾问</div><div class="backup-meta"><a href="https://www.zerohedge.com/geopolitical/us-backed-sdf-leader-joins-sharaa-regime-presidential-advisor-after-kurdish-force" target="_blank">原文</a>&nbsp;Aug-29 08</div></div><div class="backup-item"><div class="backup-text">火人节"：最富有的嬉皮士？</div><div class="backup-meta"><a href="https://www.zerohedge.com/personal-finance/burning-man-richest-hippies-alive" target="_blank">原文</a>&nbsp;Aug-29 08</div></div><div class="backup-item"><div class="backup-text">摩洛哥警方称对军事车辆的移民伏击是预谋的</div><div class="backup-meta"><a href="https://www.zerohedge.com/geopolitical/our-military-helpless-migrant-ambush-targeting-military-vehicles-ceuta-was-pre-planned" target="_blank">原文</a>&nbsp;Aug-29 08</div></div><div class="backup-item"><div class="backup-text">大萧条时期的50个生存教训：美国人如何在金钱、工作和希望消失时生存</div><div class="backup-meta"><a href="https://www.zerohedge.com/personal-finance/50-survival-lessons-great-depression-horrifying-things-americans-did-when-money" target="_blank">原文</a>&nbsp;Aug-29 08</div></div><div class="backup-item"><div class="backup-text">美国考虑重启"战利品法庭"以处理伊朗石油扣押</div><div class="backup-meta"><a href="https://www.zerohedge.com/markets/us-looks-revive-prize-courts-iranian-oil-seizures" target="_blank">原文</a>&nbsp;Aug-29 08</div></div></div><div class="backup-group"><div class="backup-group-title">💱 FXStreet</div><div class="backup-item"><div class="backup-text">韩元：韩国央行紧缩政策支撑韩元兑美元汇率——德国商业银行</div><div class="backup-meta"><a href="https://www.fxstreet.com/news/south-korean-won-bok-tightening-supports-krw-against-us-dollar-commerzbank-202608282341" target="_blank">原文</a>&nbsp;Aug-28 08</div></div><div class="backup-item"><div class="backup-text">越南：出口和消费保持强劲——星展银行</div><div class="backup-meta"><a href="https://www.fxstreet.com/news/vietnam-exports-and-consumption-stay-robust-dbs-202608282307" target="_blank">原文</a>&nbsp;Aug-28 08</div></div><div class="backup-item"><div class="backup-text">韩元：韩国央行提前加息，韩元巩固走势——德国商业银行</div><div class="backup-meta"><a href="https://www.fxstreet.com/news/south-korean-won-bok-front-loading-hikes-as-krw-consolidates-commerzbank-202608282233" target="_blank">原文</a>&nbsp;Aug-28 08</div></div><div class="backup-item"><div class="backup-text">菲律宾比索：菲律宾央行因通胀风险采取紧缩倾向——星展银行</div><div class="backup-meta"><a href="https://www.fxstreet.com/news/philippine-peso-bsp-tightening-bias-on-inflation-risks-dbs-202608282156" target="_blank">原文</a>&nbsp;Aug-28 08</div></div><div class="backup-item"><div class="backup-text">韩元：利率上升和芯片热潮支撑涨幅——ING</div><div class="backup-meta"><a href="https://www.fxstreet.com/news/south-korean-won-higher-rates-and-chip-boom-support-gains-ing-202608282118" target="_blank">原文</a>&nbsp;Aug-28 08</div></div><div class="backup-item"><div class="backup-text">马来林吉特：马来西亚国家银行预计将保持稳定政策——星展银行</div><div class="backup-meta"><a href="https://www.fxstreet.com/news/malaysian-ringgit-bnm-seen-on-steady-policy-path-dbs-202608282039" target="_blank">原文</a>&nbsp;Aug-28 08</div></div></div></div></details>
+
+<div class="footer">
+  数据来源：BBC Business · Yahoo Finance · MarketWatch · The Guardian · The Economist · ZeroHedge · FXStreet &nbsp;|&nbsp;
+  行情来源：新浪财经 · Binance &nbsp;|&nbsp; 制作：金融日报系统
+</div>
+
+</div>
+</body>
+</html>
