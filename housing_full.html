@@ -291,7 +291,8 @@ function calcStats(values) {
 // ════════════════════════════════════════════════
 function drawTierChart() {
   const svg_el = document.getElementById('chart-tier');
-  const W = svg_el.clientWidth || 1000;
+  const container = svg_el.parentElement;
+  const W = Math.max(container.offsetWidth - 64, 400);
   const H = 420;
   const margin = { top: 20, right: 80, bottom: 70, left: 60 };
   const w = W - margin.left - margin.right;
@@ -343,7 +344,8 @@ function drawTierChart() {
   const extent = d3.extent(allVals);
   const pad = (extent[1] - extent[0]) * 0.2 || 1;
 
-  const xS = d3.scalePoint().domain(filteredMonths).range([0, w]).padding(0.05);
+  const xS = d3.scaleBand().domain(filteredMonths).range([0, w]).padding(0.1);
+  const xC = d => (xS(d) || 0) + xS.bandwidth() / 2;
   const yS = d3.scaleLinear().domain([extent[0] - pad, extent[1] + pad]).range([h, 0]).nice();
 
   // 网格线
@@ -371,8 +373,7 @@ function drawTierChart() {
       .datum(validPoints)
       .attr('fill','none').attr('stroke',color).attr('stroke-width',2.5)
       .attr('d', d3.line()
-        .x(d => xS(d.month)).y(d => yS(d.value))
-        .curve(d3.curveMonotoneX)
+        .x(d => xC(d.month)).y(d => yS(d.value))
       );
 
     // 末段标签
@@ -388,7 +389,7 @@ function drawTierChart() {
     g.selectAll(`.dot-${i}`)
       .data(validPoints).enter()
       .append('circle').attr('class',`dot-${i}`)
-      .attr('cx', d => xS(d.month)).attr('cy', d => yS(d.value))
+      .attr('cx', d => xC(d.month)).attr('cy', d => yS(d.value))
       .attr('r', 4).attr('fill', color).attr('stroke','#fff').attr('stroke-width',1.5)
       .style('cursor','pointer')
       .on('mouseover', function(ev, d) {
@@ -412,10 +413,10 @@ function drawTierChart() {
   g.append('g').attr('transform',`translate(0,${h})`)
     .selectAll('text').data(ticks).enter()
     .append('text')
-    .attr('x', d => xS(d)).attr('y', 0)
+    .attr('x', d => (xS(d) || 0) + xS.bandwidth() / 2).attr('y', 0)
     .attr('fill','#5c5650').attr('font-size','11px').attr('font-family','Georgia,serif')
-    .attr('transform','rotate(-35)').attr('text-anchor','end').attr('dx','-0.4em').attr('dy','0.8em')
-    .text(d => d.replace('年','.'));
+    .attr('text-anchor','middle').attr('dy','1em')
+    .text(d => d.replace('年','月').replace('月',''));
 }
 
 // ════════════════════════════════════════════════
@@ -423,7 +424,8 @@ function drawTierChart() {
 // ════════════════════════════════════════════════
 function drawCityChart() {
   const svg_el = document.getElementById('chart-city');
-  const W = svg_el.clientWidth || 1000;
+  const container = svg_el.parentElement;
+  const W = Math.max(container.offsetWidth - 64, 400);
   const H = 420;
   const margin = { top: 20, right: 120, bottom: 70, left: 60 };
   const w = W - margin.left - margin.right;
@@ -452,7 +454,8 @@ function drawCityChart() {
   const extent = d3.extent(allVals);
   const pad = (extent[1] - extent[0]) * 0.2 || 1;
 
-  const xS = d3.scalePoint().domain(CITY_MONTHS).range([0, w]).padding(0.05);
+  const xS = d3.scaleBand().domain(CITY_MONTHS).range([0, w]).padding(0.1);
+  const xCityC = d => (xS(d) || 0) + xS.bandwidth() / 2;
   const yS = d3.scaleLinear().domain([extent[0] - pad, extent[1] + pad]).range([h, 0]).nice();
 
   document.getElementById('city-chart-title').textContent =
@@ -495,7 +498,7 @@ function drawCityChart() {
     g.append('path')
       .datum(points)
       .attr('fill','none').attr('stroke',color).attr('stroke-width',2.5)
-      .attr('d', d3.line().x(d=>xS(d.month)).y(d=>yS(d.value)).curve(d3.curveMonotoneX));
+      .attr('d', d3.line().x(d=>xCityC(d.month)).y(d=>yS(d.value)));
 
     const last = points[points.length-1];
     if (last) {
@@ -505,7 +508,7 @@ function drawCityChart() {
 
     g.selectAll(`.cdot-${i}`).data(points).enter()
       .append('circle').attr('class',`cdot-${i}`)
-      .attr('cx',d=>xS(d.month)).attr('cy',d=>yS(d.value))
+      .attr('cx',d=>xCityC(d.month)).attr('cy',d=>yS(d.value))
       .attr('r',4).attr('fill',color).attr('stroke','#fff').attr('stroke-width',1.5)
       .style('cursor','pointer')
       .on('mouseover', function(ev,d) { d3.select(this).attr('r',6); showTip(ev, `${d.month}<br><b>${city}</b><br>${fmt(d.value)}%`); })
@@ -522,10 +525,10 @@ function drawCityChart() {
   const ticks = CITY_MONTHS.filter((_,i)=>i%step===0);
   g.append('g').attr('transform',`translate(0,${h})`)
     .selectAll('text').data(ticks).enter().append('text')
-    .attr('x',d=>xS(d)).attr('y',0)
+    .attr('x',d=>(xS(d)||0)+xS.bandwidth()/2).attr('y',0)
     .attr('fill','#5c5650').attr('font-size','11px').attr('font-family','Georgia,serif')
-    .attr('transform','rotate(-35)').attr('text-anchor','end').attr('dx','-0.4em').attr('dy','0.8em')
-    .text(d=>d.replace('年','.'));
+    .attr('text-anchor','middle').attr('dy','1em')
+    .text(d=>d.replace('年','月').replace('月',''));
 }
 
 // ════════════════════════════════════════════════
@@ -582,8 +585,10 @@ function resetCityView() {
 }
 
 window.addEventListener('resize', () => {
-  if (document.getElementById('pane-tier').classList.contains('active')) drawTierChart();
-  else drawCityChart();
+  requestAnimationFrame(() => {
+    if (document.getElementById('pane-tier').classList.contains('active')) drawTierChart();
+    else drawCityChart();
+  });
 });
 
 // 初始化
@@ -592,7 +597,8 @@ if (new URLSearchParams(location.search).get('embed') !== null) {
   document.body.classList.add('embedded');
 }
 
-drawTierChart();
+// 等待 DOM 布局完成后再绘制
+requestAnimationFrame(() => requestAnimationFrame(drawTierChart));
 </script>
 </body>
 </html>
